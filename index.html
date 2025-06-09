@@ -3,1219 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ニュース記事一覧</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>ニュース記事要約</title>
     <style>
+        /* 基本的なスタイルとダークモードの配色 */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
-        .news-card a {
-            transition: color 0.3s ease;
+        /* コンテナのスタイル */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .news-card a:hover {
-            color: #93c5fd; /* Tailwind blue-300 */
+        /* ヘッダーのスタイル */
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+        h1 {
+            color: #ffffff;
+            margin: 0;
+        }
+        /* 各記事カードのスタイル */
+        .article-card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+        /* 記事タイトルのスタイル */
+        .article-card h2 {
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #bb86fc;
+        }
+        /* 要約文のスタイル */
+        .article-card .summary {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: #cfcfcf;
+        }
+        /* 記事URLのスタイル */
+        .article-card .link {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #03dac6;
+            text-decoration: none;
+            word-break: break-all;
+            transition: color 0.2s;
+        }
+        .article-card .link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        /* 記事間の区切り線 */
+        hr {
+            border: none;
+            border-top: 1px solid #333;
+            margin-top: 15px;
+        }
+        /* 注釈のスタイル */
+        .notice {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200 antialiased">
-    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
-        <h1 class="text-3xl sm:text-4xl font-bold text-center text-white mb-8 sm:mb-12">ニュース記事一覧</h1>
-
-        <div class="space-y-6">
-            <!-- Reuters ニュース記事カード -->
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:57)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/EWD4ALAXGZL3VIIGIOD5UV327Q-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        中南米金融市場＝通貨が一時1年ぶり高値、米関税巡る懸念でドル軟調
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    中南米通貨が一時1年ぶり高値を記録。トランプ米大統領の関税政策への懸念がドルを圧迫した。MSCI中南米通貨指数は高値から上げ幅を縮小し横ばい。米ADP民間雇用者数の予想下振れもドル安要因。米国の鉄鋼・アルミ関税2倍措置が発効し、特にメキシコ経済への影響が懸念される。メキシコは関税除外を要請。ブラジルレアルは下落した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:56)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/FLZKA4LSJFI3BPRYLQBG2L6ZEE-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ＮＹ市場サマリー（4日）軟調な経済指標でドル下落、利回り大幅低下　株まちまち
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日のNY市場では、予想を下回る米雇用統計やISM非製造業指数の悪化を受けドルが下落、国債利回りは大幅に低下した。株式市場はS&P500がほぼ横ばい、ナスダックは小幅続伸したがダウは反落とまちまち。金先物は米長期金利低下とドル安で反発。原油先物はガソリン在庫増が嫌気され反落した。米中貿易交渉の行方も注目されている。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:38)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/us/VJPKLKLGIVNZFPE6WVMRDTBWOM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米国株式市場＝まちまち、ダウ小反落　軟調な経済指標受け
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の米国株式市場は強弱まちまち。S&P500はほぼ横ばい、ナスダックは小幅続伸したが、ダウは小反落した。軟調な経済指標がトランプ大統領の貿易政策による経済への影響を示唆。ISM非製造業総合指数は1年ぶりの低水準、ADP民間雇用者数も予想を下回った。米中首脳協議への期待感もあるが、関税交渉の行方が依然不透明。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:28)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/UGQNSLYNHFMUPCOZ3244WPA6AM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米労働省、人員不足でＣＰＩサンプル数削減　データへの影響懸念も
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米労働省経済統計局（BLS）は4日、資源的制約から消費者物価指数（CPI）の収集サンプル数を全国的に削減していると発表。データ全体への影響は「最小限」としながらも、地域別・品目別指数の変動性増大の可能性を認めた。トランプ政権下の採用凍結の影響が指摘され、統計収集スタッフ削減によるデータ品質低下を懸念する声も上がっている。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:13)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/security/CUUUR3KAXBLL7MNAGPFLPOSROQ-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米、ガザ停戦国連決議案に拒否権発動　安保理の他の14カ国は賛成
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    国連安全保障理事会は4日、パレスチナ自治区ガザでの即時停戦と人道支援制限解除を求める決議案を採決したが、米国が拒否権を行使し否決された。米国連大使代理は、ハマスを非難せず武装解除を求めない措置は支持できないとし、決議案は外交努力を損ないハマスを勢いづかせると主張。米国以外の安保理14カ国は賛成票を投じた。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:10)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/Y3P4V7VVTBKP5GBZACRXEAOO4I-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米金融・債券市場＝利回り大幅低下、軟調な経済指標を材料視
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の米金融・債券市場では利回りが大幅低下。予想より軟調な労働市場データやISM非製造業総合指数の予想外の低下が材料視された。ADP民間雇用者数は2年超ぶりの低水準。10年国債利回りは一時4.349％まで低下。市場はFRBが9月に利下げに踏み切る確率を約75％と織り込む。米国の鉄鋼・アルミ関税2倍措置も発効した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:08)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/us/75XXCR7EZZPTHNCT6WB5QIBTWI-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        プーチン氏、ウクライナの大規模攻撃に「反撃」　トランプ氏に伝える
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    ロシアのプーチン大統領は4日、トランプ米大統領との電話会談で、ウクライナによるロシア空軍基地への大規模ドローン攻撃などに対しロシアは対応せざるを得ないと伝えた。プーチン氏はウクライナが和平を望んでいないと非難。トランプ氏は会談内容をSNSに投稿し、プーチン氏が反撃を強く述べたと明かした。イラン核合意についても協議した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:07)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/us/DUIIUMLG3BPD7A2EMTJEKNSMRE-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ＮＹ外為市場＝ドル下落、弱含みの経済指標相次ぐ
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日のNY外為市場でドルが下落。米ADP民間雇用者数が予想を下回り2年超ぶりの低水準となったほか、ISM非製造業総合指数も約1年ぶりの低水準に。これらを受け、FRBが6月のFOMCでよりハト派的なメッセージに傾くとの見方が浮上し、年内利下げ観測がやや強まった。ドルは対円で0.7％安の142.89円、ユーロは0.4％高の1.1414ドル。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:06)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/QXMBTC64RFKLXNYYHYLOZVFDQA-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米経済活動は鈍化、関税措置で価格上昇圧力＝地区連銀報告
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    FRBが4日公表した地区連銀経済報告（ベージュブック）は、米経済活動の鈍化と関税引き上げによるコスト・価格上昇圧力を指摘。見通しは依然やや悲観的で不透明とし、コスト・価格上昇ペース加速の見方も多い。12地区中、経済拡大は3地区のみで半数が縮小を報告。雇用は「横ばい」。景気減速とインフレ加速の課題にFRBは難しい対応を迫られそうだ。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:05)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/ukraine/CDA7WHUVTBOCXDHQHH7DVV4ZGI-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ロシア空軍基地への奇襲攻撃、米当局の被害推計はウクライナの半数
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    ウクライナが1日に実施したロシア空軍基地への大規模ドローン攻撃に関し、米当局によるロシア軍機の被害推定がウクライナ側の約半分であることが関係筋の話で判明。米当局は損傷20機、うち破壊約10機と推定。ゼレンスキー大統領は被害41機、半数が修理不能と述べていた。米当局はこの攻撃を極めて重大と見ており、ロシアの対ウクライナ姿勢硬化を警告。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 05:59)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/security/II6LHDYCURLQXBSNUGVFHDN5M4-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        日鉄・ＵＳスチール買収計画、メキシコが5日に再承認へ＝関係筋
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    メキシコの連邦経済競争委員会（COFECE）が、日本製鉄によるUSスチール買収提案を早ければ5日にも再承認する見込みだと関係者が明らかにした。買収額は149億ドル。メキシコの承認は以前期限切れとなっており、再承認が必要。これにより、買収計画の最後の障害の一つが取り除かれる可能性がある。トランプ米大統領も5日に是非を判断する見通し。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 05:58)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/SMZ7POLD3VOPTPMY24V2K5NMZM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        カナダ、米との関税交渉失敗なら対抗措置＝首相
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    カナダのカーニー首相は4日、トランプ米政権が掲げる関税措置の撤廃に向けた交渉が不調に終わった場合、米国に対する対抗措置を準備していると述べた。カナダ議会で「米国と集中的な交渉を行うと同時に、交渉が成功しなかった場合に備え対抗措置を準備している」と語った。米国の鉄鋼・アルミ関税引き上げなどへの対応とみられる。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 05:56)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/B53HD2WYNZMNVM4HWQSW7ITQMY-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        トランプ氏、連邦債務上限撤廃を主張　「経済的大惨事招く」
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    トランプ米大統領は4日、連邦政府債務上限の撤廃を主張し、民主党ウォーレン議員の見解に賛同するとSNSで表明した。債務上限は経済的大惨事を防ぐために完全に廃止されるべきであり、「わが国に及ぼす恐ろしい影響を顧みず、それを利用しようとする政治家の手に委ねるべきではない」と述べた。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 05:30)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/europe/GKPQCY77MRIVBM6PL2U5BV5R5U-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        欧州市場サマリー（4日）
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日のロンドン株は製薬・鉱業株高で上昇。米国の鉄鋼・アルミ追加関税は英国に対し据え置き。欧州株も続伸、独DAXは法人税軽減策を好感。ユーロ圏債券利回りは小幅上昇。ECB利下げ観測は強いが、主要国の財政懸念が慎重姿勢を維持させた。5月のユーロ圏HICPは前年比1.9%上昇と目標を下回り、利下げ観測を裏付けた。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 03:46)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/europe/DK6S2J6YUNII3IZ4FGMHNYD5U4-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        欧州株式市場＝続伸、ドイツ株が上昇
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の欧州株式市場は続伸。ドイツDAX指数が法人税軽減策閣議承認を受け0.77%上昇し全体を牽引、仏CAC40も0.53%高。独政府は460億ユーロ規模の法人税軽減策を決定。STOXX欧州600種テクノロジー株指数は1.19%高、STマイクロは11.1%の大幅高。5日のECB理事会での0.25%利下げが確実視される中、米関税への警戒感も続く。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 03:45)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/LU5NGF7LHVN2NH2PK63ZM77GNE-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米ＩＳＭ非製造業総合指数、5月49.9に低下　インフレ懸念浮き彫り
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米供給管理協会（ISM）が4日発表した5月の非製造業総合指数は49.9と、前月の51.6から低下し、2024年6月以来の低水準となった。分岐点の50を下回るのは1年ぶり。原材料価格の上昇に企業が直面し、低成長・高インフレリスクが浮き彫りに。米関税措置の不確実性から発注遅延や抑制の動きも報告された。新規受注指数は46.4に低下。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 03:16)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/europe/H5FXOZEI6RP5XI4NN4THJZWHZ4-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ロンドン株式市場＝上昇、製薬や鉱業株に買い
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日のロンドン株式市場は上昇。米関税動向が注目される中、製薬・鉱業株が買われ相場を押し上げた。FTSE250種指数は0.48%高。米国は鉄鋼・アルミ追加関税を2倍にしたが、英国へは25%に据え置くと発表。FTSE350種製薬・バイオ株指数は0.66%高、鉱業株指数は1.36%高。一方、B&Mは軟調な売上高見通しで14.7%安。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 03:10)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/R5FVD6QTZNLMDBU7GDYU3VAKIM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        カナダ中銀、政策金利を2.75％に据え置き　先行き利下げに含み
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    カナダ銀行（中央銀行）は4日、政策金利を2.75％に据え置いた。2会合連続。米貿易政策の影響を見極める必要性を指摘しつつ、関税で経済が弱体化すれば追加利下げの可能性を示唆。マックレム総裁は米貿易摩擦がカナダ経済最大の逆風と述べた。コアCPI上昇は貿易混乱の影響を反映している可能性があり、不確実性から慎重な姿勢を維持。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 02:30)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/7HIQMEQCTRMRNLHCHJGTUAXYUE-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米企業、大半が価格転嫁でトランプ関税に対応＝ＮＹ連銀調査
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    NY連銀の4日公表報告書によると、同地区企業の多くが先月、トランプ大統領の関税措置の少なくとも一部を価格転嫁した。製造業の約1/3、サービス業の約45%がコスト増を完全に価格転嫁。両業種の約75%が何らかの形でコスト増を価格に転嫁。企業は関税引き上げへの対応に相当な混乱と不確実性を感じていることも判明した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 01:28)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/3DN6I6KVH5P4PDVFNUCP3TJF5I-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        欧州委とＥＣＢ、ブルガリアのユーロ導入承認　26年から
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    欧州委員会とECBは4日、ブルガリアが2026年1月1日からユーロを導入することを承認した。クロアチアに次ぎ21カ国目となる。欧州委はブルガリアが物価、財政、為替レートの安定性など正式基準を満たしたと結論。ECBも導入準備完了と表明。ブルガリア国民の半数はユーロ導入に後ろ向きとの調査結果もあるが、通貨移行による価格上昇は最小限と欧州委は見ている。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 01:17)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/us/HDGRC4NZNVNG5AAIVSYCRZXXKQ-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        トランプ減税法案による債務推計増加額、議会予算局が下方修正
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米議会予算局（CBO）は4日、トランプ大統領が掲げる税制・歳出法案による連邦政府債務の推計増加額を下方修正し、2兆4000億ドル上積みされるとした。従来推計は約3兆8000億ドル増だった。同法案は2017年導入の減税延長やメディケイド大幅削減を目指す。イーロン・マスク氏は同法案を「不快で忌まわしい存在」と批判している。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 00:50)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/europe/IZVOKR3VIVM7NNV72FF6Y6EZRY-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ユーロ圏金融・債券市場＝利回り小幅上昇、主要国の財政懸念継続
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日のユーロ圏金融・債券市場で国債利回りが小幅上昇。前日のユーロ圏インフレ指標受けECB利下げ観測が強まるも、主要国の財政持続可能性への懸念から市場は慎重。5月ユーロ圏HICP速報値は前年比1.9%上昇とECB目標を下回り、5日の利下げ観測を裏付け。独10年債利回りは2bp上昇の2.525%。独政府は460億ユーロ規模の法人税軽減策を承認。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 23:57)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/ukraine/FXK576LW5JNTBDM7XPCE24YUTE-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ロシア報道官、西側諸国のウクライナ「テロ攻撃」への関与を主張
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    ロシア外務省のザハロワ報道官は4日、ロシア国内民間人を標的としたウクライナの「テロ攻撃」に西側諸国が直接・間接的に関与していると主張。ウクライナ保安局（SBU）は3日、クリミア橋水面下の橋脚部分を爆発物で攻撃したと発表。ザハロワ氏は、西側が武器や攻撃目標座標を提供し、攻撃を扇動したと非難。ケロッグ米特使はウクライナ戦争エスカレートリスク「急上昇」との見方を示した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 23:51)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/CNAFIEJVAZOPJBSLZFMK6QUTCI-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米ＡＤＰ民間雇用、5月3.7万人増に鈍化　増加幅2年超ぶり低水準
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米ADPリサーチ・インスティテュートが4日発表した5月の全米雇用報告によると、民間雇用者数は3万7000人増と予想（11万人増）を大きく下回り、2023年3月以来2年超ぶりの低水準となった。4月分も下方修正。サービス部門で3万6000人増加した一方、財生産部門では2000人減少。労働市場の緩和を示唆する可能性があるが、関税措置の不確実性の中での実態反映は不明。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 21:41)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/KOOCQDTIN5M53DO45I3LZZGXEY-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        トランプ米大統領「ＦＲＢ議長は利下げを」、民間雇用の鈍化指摘
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    トランプ米大統領は4日、FRBのパウエル議長に対し利下げを要求。5月のADP民間雇用者数が鈍化したことを指摘し、自身のSNSで「ADPの数字が出た。遅すぎる。パウエル議長は金利を今、引き下げなければならない。欧州は9回も金利を下げている」と投稿した。経済指標の悪化を背景に、金融緩和への圧力を強めている。
-                </p>
-            </div>
-
-             <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 20:17)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/business/autos/MNAPFT7OAFNF5AWKOMFLEQH2WM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        マツダ、山口・防府工場でＥＶ生産　既存拠点で混流
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    マツダは4日、2027年発売予定の自社開発EVを防府工場（山口県）で生産すると発表。既存工場でガソリン車と混流生産し、初期投資を85%削減、準備期間を80%短縮する。大型SUVのPHEV生産実績が防府選定理由。宇品工場でのEV生産も検討。30年の世界販売EV比率目標は25-40%だが、国内生産は下限近くを想定。米国向け車両生産は減少していない。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 20:09)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/business/W3JEGMTGCZPIHB2W6F7TVY76WI-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ドイツ、法人税軽減策を閣議承認　460億ユーロ規模
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    ドイツ政府は4日、460億ユーロ規模の法人税軽減策を閣議承認した。今年から2029年まで企業を支援し、景気回復を目指す。有利な減価償却ルールの導入や、3年間で年最大30%の減価償却率を認める措置が含まれる。EV購入者向け一時的税控除も導入。28年から法人税率を毎年1%ポイント引き下げ、32年に10%にする公約も掲げた。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 19:30)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/asia/OE7TJQVSVFJWJFL5TEUW7TXXTE-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        アジア株式市場サマリー：引け（4日）
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日のアジア株式市場は、中国・香港株がバイオテク・レアアース株高で続伸。米中首脳会談期待が背景。ソウル株は李在明氏当選で景気刺激策期待から約2カ月ぶり大幅高。シドニー株も続伸、RBA利下げ期待で銀行・一般消費財株が主導。豪1-3月期GDPは市場予想下回る。各国市場で個別材料や期待感が相場を動かした。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 19:28)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/korea/KJZ27LBCUBJDNKWPFUM7JJGLIA-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        韓国大統領選、若い女性票は李氏に　男女分断が投票行動に
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    韓国大統領選で、革新系「共に民主党」の李在明氏が若年女性票を集め勝利。20代女性の約58%、30代の57%が李氏に投票。一方、若年男性の過半数は保守系候補に投票し、性別による投票行動の差が鮮明化。背景には深刻な男女格差があり、賃金格差はOECD最大。李氏は女性家族省の役割拡大を表明したが、ジェンダー平等への強い支持は見られないとの指摘も。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 19:11)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/security/5ENMTPGSOROBDH7BKVBNSU6Y5Y-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米ホワイトハウス、韓国大統領選は「公正」　中国の影響力に懸念
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米ホワイトハウス当局者は3日、韓国大統領選を「公正」と評価しつつ、中国の干渉に懸念を示した。「米韓同盟は揺るぎない」とし、世界の民主主義国家における中国の影響力に反対すると述べた。李在明氏の勝利に対し、トランプ氏に近い極右活動家からは批判的な投稿も。中国外務省は内政干渉だと反発。ルビオ国務長官は李氏の勝利を祝福した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 18:57)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/business/autos/RKXDNDFG5VK3JIPSONBVG24JEA-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        テスラの中国製ＥＶ販売、5月は前年比15％減　価格競争で苦境続く
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    テスラの中国製EV販売台数が5月で8ヶ月連続の前年割れ。中国市場での価格競争が響き、前年比15%減の6万1662台となった（輸出含む）。前月比では5.5%増。一方、競合のBYDの5月世界販売は前年比14.1%増の37万6930台だったが、伸び率は4月から鈍化した。中国EV市場の競争激化が鮮明になっている。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 18:42)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/HYRGHRLOK5OPDLNE3ZKOUBWDQU-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        英サービスＰＭＩ、5月は再び50超え　「米関税懸念が後退」
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    S&Pグローバルがまとめた5月の英国サービス部門PMI改定値は50.9と、分岐点の50を再び上回った。速報値は50.2。4月は49.0だった。「米国の関税懸念後退、世界金融市場の回復、取引先の信頼感の高まりが生産の伸びを支えた」と分析。輸出受注は大幅回復、新規受注全体の減少ペースも鈍化。コストの伸びは依然急速だが、4月よりは鈍化した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 18:38)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/ukraine/MGTXLUGOHJOOJHYP52P7JZCV34-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ウクライナ戦争、リスクレベル「急上昇」　爆撃機攻撃で米特使
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    トランプ米政権のケロッグ特使（ウクライナ担当）は、ウクライナによるロシア・シベリアの軍事基地攻撃（核搭載可能な長距離爆撃機への攻撃）を受け、ウクライナ戦争のエスカレートリスクが「急上昇」していると述べた。「敵国の核の三本柱の一部を攻撃すればリスクレベルが上がる」と指摘。ロシアにとっては爆撃機の損害より心理的影響が大きいとの見方も示した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 18:34)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/FMG4DX76SZK55KN355D4VRZFPE-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        独サービスＰＭＩ、5月改定47.1　22年11月以来の低水準
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    S&Pグローバルがまとめた5月のドイツHCOBサービス業PMI改定値は47.1と、4月の49.0から低下し2022年11月以来の低水準。需要鈍化と不確実性高まりが影響。事業活動・新規事業の減少ペース加速、雇用創出ペースも鈍化。ハンブルク商業銀行チーフエコノミストは「サービス部門は経済全体を安定させるどころか減速させている」と指摘。総合PMIも48.5に低下。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 18:06)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/asia/YNAMJL7IHNPLFBNVFJ2GC6M2T4-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        中国・香港株式市場・大引け＝続伸、バイオテクやレアアース関連株が高い
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の中国・香港株式市場は続伸。バイオテクやレアアース関連銘柄が買われた。米中首脳の電話会談で貿易摩擦の緊張緩和期待が浮上。上海総合指数は0.42%高、CSI300指数は0.43%高。香港ハンセン指数は0.60%高。ハンセンヘルスケア指数は3.2%高、レアアース関連株も2.2%高。ただ、関税の不透明感や米債務問題が引き続き市場を揺るがすとの見方も。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 17:42)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/global-markets/LVPQSRHHFJMHVALJTP5Q7HF3LQ-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        野村ＨＤ指名委、永井・奥田氏の「再任は不可欠」　ＩＳＳが反対推奨
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    野村HDは4日、米議決権行使助言会社ISSが永井会長と奥田グループCEOの取締役再任案に反対推奨したことに対し、指名委員会の見解を公表。両氏の再任は企業価値向上に不可欠とし、施策推進を継続する方針を示した。ISSは野村證券の法令違反や元社員の不正行為を反対理由に挙げたが、指名委は適切に対応し再発防止策も策定・実施済みと説明。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 17:36)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/world-indices/UETJD4EY7BK5VA7PL4LVDD3ANE-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        バークレイズ、Ｓ＆Ｐ500種指数の年末目標を6050に引き上げ
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    バークレイズは4日、米S&P500種指数の年末目標を5900から6050に引き上げた。貿易の不透明感緩和と来年の増益率正常化を見込む。直近終値からの上昇率は1.32%。ゴールドマン・サックス、UBSグローバル・ウェルス・マネジメントも先月予想を上方修正。RBCキャピタル・マーケッツ、ドイツ銀行も今週予想を引き上げた。来年の1株利益は285ドルと予想。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 17:27)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/C2B4L3WOERJJ5MQG2OX337LWVA-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ノルウェーＳＷＦの助言組織、ヨルダン川西岸入植者向け融資を調査
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    ノルウェー政府年金基金の独立助言組織「倫理評議会」が、イスラエル銀行によるヨルダン川西岸地区のイスラエル人入植者向け融資慣行を精査中。一方、ユダヤ人入植地でサービス提供するエアビーアンドビーなど宿泊施設プラットフォームへの同基金投資には異議を唱えない決定。2024年末時点で同基金はイスラエル大手金融機関5行の株式約5億ドルを保有。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 17:06)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/taiwan/ISQ3JP6RKVM5NMHFRKNLCS7REU-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        天安門事件36年、台湾総統と米国務長官が犠牲者を追悼　中国は反発
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    天安門事件から36年。台湾の頼清徳総統は運動参加者の勇気を称え、人権は共有概念だと投稿。ルビオ米国務長官も犠牲者の勇気を称賛し「世界は決して忘れない」と表明。中国外務省はルビオ氏発言を「歴史事実の悪意ある歪曲」と内政干渉だと反発、苦情を申し立てた。「天安門の母」は事件の公的説明を中国政府に要求。香港では厳重警備が敷かれた。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 16:31)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/VXY4VQTBTJI4XP6XV5RS76GKIU-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        日経平均は4日ぶり反発、円安を好感　自律反発狙いの買いも
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の日経平均は4日ぶり反発、前日比300円高の3万7747円で引けた。前日の米国株高と円安が買い材料。3日間で1000円近く下落しており自律反発期待の買いも入った。ただ後半は手掛かり難で模様眺め。輸出関連株中心に物色され一時421円高も、週末の米雇用統計控え見送り気分が強まった。3万8000円は重いとの印象も。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 16:22)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/GO7RPCHGURNQXOL4RWVIEOMUIM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        イラン最高指導者、核問題巡り米の要求拒否　ウラン濃縮継続へ
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    イランの最高指導者ハメネイ師は4日、核開発問題を巡る米政府提案を国益に反すると表明し、ウラン濃縮継続方針を示した。米国との核協議ではウラン濃縮が対立点。「イランが濃縮を行うべきか一体誰が決めるのか」と演説。イラン外交官は2日、同国が米政府提案を拒否する構えだと述べていた。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 16:11)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/T5LNOY66AJP4ZP5TN7DQFPYYPE-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        東京マーケット・サマリー（4日）
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の東京市場。ドル/円は午後3時時点で144円前半、前日NY終盤から小幅ドル高。日経平均は4日ぶり反発、3万7747円（+300円）。米株高と円安が好感された。円債先物6月限は反落、138円95銭（-21銭）。米金利上昇や30年債入札警戒で売り優勢。長期金利は1.500％（+2.0bp）。無担保コール翌日物は横ばい圏の見通し。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 16:05)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/LM6WNBPVCFN55OMLOK74COH6SQ-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        アラスカＬＮＧ開発、50社が1150億ドル相当の契約に関心
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米エネルギー開発会社グレンファーンは3日、アラスカ州のLNG開発計画に対し、約50社が総額1150億ドルの契約に正式関心を表明したと発表。同計画はアラスカ北部のガス田と南部港をパイプラインで結びLNGをアジアへ輸出するもので、トランプ大統領が後押し。日韓などの企業から関心が寄せられ、JERAなども関心を示したと関係筋。最終投資決定は今年第4四半期末の見込み。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 16:00)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/us/2UAES7EWB5IPNGB6W62FMNXH2M-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        中国国家主席は非常にタフ、ディールは極めて困難＝トランプ米大統領
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    トランプ米大統領は4日、中国の習近平国家主席とのディールは極めて困難だとSNSに投稿した。「中国の習近平国家主席をこれまでも、そしてこれからも好きだが、彼は非常にタフで、ディールするのは極めて困難」と述べ、米中間の貿易交渉などの難しさを示唆した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 15:54)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/MJKVRIZSMFI7FO6LWRIZQZDA3A-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        〔マーケットアイ〕株式：日経平均は4日ぶり反発、円安を好感　自律反発狙いの買いも
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の日経平均は4日ぶりに反発し3万7747円45銭で引けた。円安進行や前日までの下落による自律反発期待が買いを誘った。ただ、新たな材料難や週末の米雇用統計控えで後半は高値もみ合い。市場では「円安が株高要因だが上値を買える材料がない。3万8000円は重い」との声。トヨタは堅調、IHIは連日高値更新。JTはさえない。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 15:54)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/korea/RY6LMJNNEJKA5F5O7LWCM2C2PM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        韓国・李新大統領が就任演説、民主主義復活を強調　日米と協力継続
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    韓国新大統領に就任した李在明氏は4日の演説で、前政権の「非常戒厳」宣言で崩壊した民主主義復活と経済再生を表明。「実利主義で市場志向の政権」を強調し、規制緩和、米との安保同盟維持、北朝鮮との対話再開、日米との協力継続の方針を示した。生活費問題や中小企業苦境にも注力。首相候補には金民錫議員を指名した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 15:53)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/GXSRTE243BMMDOZPLAUSM52SWU-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        午後3時のドルは144円前後で売買交錯、トランプ氏発言も影響限定的
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日午後3時のドル/円は144円前半で取引。前日海外のドル高を引き継ぎ序盤は買い先行も、米中首脳会談や米雇用統計控え上値は限定的。午後に一時144円前半へ上昇も勢い続かず反落。トランプ大統領が対中交渉困難との見方を示すと再び143円後半へ売られた。市場では米中交渉の行方が注目されるも、極端な高関税リスクは低下との見方も。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 15:48)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/PUDZVJ77A5KBJMMNYS47FZTV7Q-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        〔マーケットアイ〕外為：ドル143円後半へ反落、トランプ氏が対中交渉「困難」と発言
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日午後3時過ぎ、ドル/円は144円前半から143円後半へ下落。トランプ米大統領がSNSで中国の習近平国家主席について「タフでディールは極めて困難」と投稿したことが影響。それ以前は、ドルは144円前半へ小幅上昇していたが、上値は重かった。米中首脳会談や週末の米雇用統計を控え、様子見ムードが続いていた。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 15:48)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/2MUP2ZA6TRO6PGJ7QX3V5VBK3A-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米ブラックロック、テキサス州の「ボイコット」リストから除外
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    テキサス州は3日、エネルギー産業を「ボイコット」している企業リストから資産運用大手ブラックロックを除外。同社が気候変動対策グループから脱退し、環境関連株主決議への支持を弱めたことなどが理由。ヘーガー州会計監査官は「ブラックロックは石油・ガス投資制限のコストを認識した」と述べた。ブラックロックは決定を歓迎し、州内投資継続を表明。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 15:22)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/G66P6FX4LFPVPLMEABQM44NXBA-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        〔マーケットアイ〕金利：国債先物は反落、長期金利1.50％　米金利上昇や30年債入札への警戒で
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の国債先物6月限は前営業日比21銭安の138円95銭と反落。米金利上昇や翌日の30年債入札への警戒感から売り優勢。新発10年国債利回り（長期金利）は2.0bp上昇の1.500％。日銀オペは3-5年が無難、他は弱めと受け止められ、超長期ゾーン中心に金利上昇圧力。市場では30年債入札への様子見が続くとの見方。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 15:07)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/Y3YN3NTWINKZJAHKMSEE32VKDE-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        〔マーケットアイ〕外為：午後3時のドルは144円前半へ小幅上昇、底堅いが上値伸びず
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日午後3時のドル/円は144円前半。前日NY終盤から小幅ドル高。海外でのドル買いの流れを引き継ぐも、米中首脳会談や米雇用統計控え上値は限定的。朝方から143円後半で横ばい後、仲値後に一時144円前半へ上昇もすぐに戻す。市場では「下値の不安材料は剥落」との見方もあるが、米中会談次第で下方リスクも意識され伸び悩む展開。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 15:00)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/HZKUZ5S2DJJIRCKXCZ746JV4XI-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米の鉄鋼・アルミ50％関税が発効、「最善の貿易交渉案」の期限
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米国の鉄鋼・アルミ関税を2倍の50%に引き上げる措置が4日発効。英国を除く全貿易相手国が対象。カナダとメキシコに特に大きな打撃。カナダは交渉中、メキシコは免除を求める。また、トランプ政権が貿易相手国に「最善の貿易交渉案」提示を求めた期限も4日。USTRは各国に提案リスト提出を要請。日本は書簡未受領と表明。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 14:40)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/THJQJLAAMNIPFBDI4JTE7GCYOM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        〔マーケットアイ〕株式：後場中盤の日経平均は高値もみ合い、新たな材料見当たらず見送り
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日後場中盤の日経平均は3万7800円前後で高値もみ合い。ドル高/円安は好感されるも、新材料難や週末の米雇用統計控え見送りムード。市場では「円安が株高要因だが上値を買える材料がない。3万8000円は重い」との声。トヨタは堅調、IHIは連日高値更新。JTはさえない。前場は米株高や円安で反発し一時400円超高。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 14:38)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/north-korea/S5X3PO2EDBJI3AM2FDPAGFEU4A-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        横転の北朝鮮駆逐艦、直立状態に　衛星画像で判明＝米分析サイト
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米国の北朝鮮分析サイト「38ノース」は4日、先月横転事故を起こした北朝鮮の新型駆逐艦が直立状態に戻されたようだと明らかにした。5000トン級駆逐艦は先月21日の進水式で事故。2日撮影の衛星画像で作業員がロープを引く様子が確認された。船首はまだ陸上にありソナー部損傷の可能性もあるが、清津港に修理インフラはないという。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 14:37)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/asia/KEREDWKNSROI3JFEZIZ2RBSKUI-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        東南アジア株式・中盤＝大半が下落
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の東南アジア株式市場は中盤、大半が下落。米国と各国の関税交渉の進展待ちの姿勢が広がった。近く行われるとみられるトランプ米大統領と中国の習近平国家主席の電話会談も注目されている。市場参加者は米中間の貿易摩擦の行方や、それによる各国経済への影響を慎重に見極めている。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 12:08)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/LFM4RVLDXBLC3DPMHEI3UOXJNI-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        午前の日経平均は反発、米株高や円安で　ハイテク株上昇
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日前場の東京株式市場で日経平均は3万7834円66銭（+387円85銭）と反発。米株高と円安が支え。半導体株などが買われ一時400円超高も、買い一巡後はもみ合い。市場では「米株底堅く日本株もしっかりだが上値重そう。関税交渉中は買いづらく一段高には明確な材料必要」との声。TOPIXは0.72%高。豊田自動織機は大幅安。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 12:02)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/RUMYTF5JCZJ2TIFP2ODDDOXO5Q-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        〔マーケットアイ〕外為：正午のドル143円後半で横ばい、米指標前の様子見　米中会談に期待と警戒
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日正午のドル/円は143円後半で朝方からほぼ横ばい。米重要指標発表を控え様子見ムード。週内の米中首脳会談への期待と警戒感が交錯し、ドル/円は伸び悩んだ。市場では「ドル142円割れで下方リスク高まるも米中会談期待で踏みとどまった。下値不安材料は剥落しつつある」との見方。一方、会談次第で再び下方リスクも。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 11:46)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/YDBE3KNH7BPBJM7QBNREQ24QYA-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        韓国ＣＰＩ、5月は前年比＋1.9％　5カ月ぶりの低い伸び
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    韓国統計局が4日発表した5月の消費者物価指数（CPI）は前年同月比1.9%上昇。4月の2.1%から鈍化し、昨年12月以来5カ月ぶりの低い伸び。市場予想（2.1%上昇）も下回った。韓国銀行は先週、政策金利を2.50%に引き下げており、今回のCPI結果は追加利下げ観測を強める可能性がある。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 11:42)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/japan/G5WHOT6FDRMPRPY7CSEDNY3GYM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米の最善交渉案求める書簡、現時点で受け取ってない＝林官房長官
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    林芳正官房長官は4日午前の会見で、USTRが貿易相手国に最善の貿易交渉案提出を求めた書簡について「現時点で受け取っていない」と述べた。トランプ米政権による一連の関税措置に関しては日米間で協議中であり、政府一丸で取り組む姿勢に変わりはないと強調。米鉄鋼・アルミ関税率引き上げの日米交渉への影響については「予断を持って答えることは控える」とした。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 11:36)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/6O5OWY2BKFP6VARZHWNJPEXQOQ-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        〔マーケットアイ〕株式：前場の日経平均は反発、米株高や円安で　ハイテク株上昇
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日前場の日経平均は3万7834円66銭（+387円85銭）と反発。米株高と円安が支援材料。半導体関連株などが買われ、一時400円超高となる場面も。ただ買い一巡後はもみ合い。市場では「米ナスダック高を受け東京でも半導体株の流れが継続。ドル円の円安も好感」との声。アドバンテスト、東エレクなどが上昇。豊田自動織機は軟調。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 11:35)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/ELOR4WLCWNIPFK6KS5PP5DH5LI-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        インドネシア、第2回対米交渉に先立ち「特恵関税」リスト提示へ＝調整相
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    インドネシアのハルタルト調整相（経済）は、今月予定の米国との第2回関税交渉前に、米国への「特恵関税」リスト提示を約束。トランプ米大統領設定の交渉期限7月3日より前に協議加速の用意があると説明。「オープンな対話で交渉課題を克服する態勢は整っている」と述べ、米国との強固な長期的パートナーシップ構築に意欲を示した。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 11:28)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/asia/3QKOM3PD4VNO7LKA3T3ZK7JU7U-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        アジア株式市場サマリー：中盤（4日）
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日午前のシドニー株は続伸、エネルギー株主導で8500超え。ソウル株は韓国大統領選受け2%超高。SKハイニックス6.3%高。アジア市場は各国材料でまちまちの動き。豪ドル安や米株高も一部市場を支えた。投資家は米中貿易交渉や各国の金融政策の行方を注視している。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 11:15)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/world-indices/6NXNLC4GUBJH3D7JLZEXCHIKPY-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        クラウドストライク、四半期売上高見通しが予想下回る　株価下落
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米サイバーセキュリティ企業クラウドストライクが3日公表した第2四半期売上高見通しは市場予想を下回り、株価は時間外で5.7%下落。政府・企業によるサイバーセキュリティ製品支出の弱まりが示唆された。金利上昇やインフレが需要を圧迫。第1四半期売上高は11億ドルで予想と一致、調整後1株利益は0.73ドル。最大10億ドルの自社株買い計画も承認。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 11:14)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/V77UFJXBINL6BKNGF6QSR2IWF4-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        〔マーケットアイ〕金利：前場の国債先物は反落、米金利高や入札警戒感で　長期金利1.495％
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日前場の国債先物6月限は前営業日比19銭安の138円97銭と反落。米金利上昇や翌日の30年債入札への警戒感が重し。新発10年国債利回り（長期金利）は1.5bp上昇の1.495％。市場では「きのうの10年債入札は好調だったが、市場の焦点はあすの30年債入札。投資家層の違いや減額規模不明、財政不安から警戒感が強い」との見方。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 11:07)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/6TINCXDH3NL6XPD4SLXQIZHQQQ-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        原油先物は反落、ＯＰＥＣプラスの増産や関税巡る懸念が重し
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日アジア時間の原油先物は小幅下落。OPECプラス増産による需給緩和や関税を巡る緊張による世界経済の先行き懸念が重し。ブレント先物は0.1%安の65.58ドル、WTI先物は0.1%安の63.32ドル。前日はカナダ山火事懸念やイラン核協議停滞で2%上昇していた。市場は米中貿易協議の進展期待もあるが、関税影響に慎重姿勢。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 10:48)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/business/technology/JIOKT535KJOQVLRZDJVEEB5XBI-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米ＨＰＥ、第2四半期は予想上回る　ＡＩサーバー需要がけん引
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米ヒューレット・パッカード・エンタープライズ（HPE）の第2四半期決算は売上高・利益が市場予想を上回った。AIサーバー需要やハイブリッドクラウド部門が牽引。売上高は76.3億ドル（予想74.5億ドル）、調整後1株利益は0.38ドル（予想0.32ドル）。株価は時間外で3.2%上昇。年間売上高見通しは7-9%増に幅を縮小。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 10:42)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/OPGEL2RS5RJXBIVKAYXX2P4OFM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ベネズエラ原油輸出安定　制裁で対米供給減も中国向け増加
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    5月のベネズエラ原油輸出は米経済制裁にもかかわらず横ばい。中国向け出荷増が対米輸出減を相殺。PDVSA内部文書と船舶追跡データで判明。米財務省・国務省は3月、PDVSA顧客・提携企業に対しベネズエラ産原油輸出認可を取り消し、5月27日までの事業停止を要請。5月の中国向け原油は日量約58.4万バレル（前月52.1万バレル）。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 10:28)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/CCH2YOT62ZKJFCCJR5EYNSRHO4-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        カナダ、米の関税撤廃求め集中協議　鉄鋼・アルミ追加関税を批判
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    カナダ首相府は3日、トランプ米政権による鉄鋼・アルミ追加関税や他輸入関税の適用除外を得るため「集中的かつ活発な」交渉を行っていると表明。「米国が本日発表したカナダの鉄鋼・アルミに対する追加関税は違法かつ不当だ」と批判し、新政権は関税撤廃を目指すとした。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 10:26)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/SVLDN3CN7BJMZA2GZATPSDUBSA-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        〔マーケットアイ〕株式：日経平均はしっかり、一時400円超高　半導体株高い
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日午前の日経平均は堅調、一時400円超高。前営業日比約300円高の3万7700円台半ばで推移。半導体株の一角が堅調で相場を支えた。市場では「前日の米ナスダック高を受け東京でも半導体株の流れが継続。ドル/円の円安も好感」との声。アドバンテスト2%超高、東エレク1%超高。トヨタ1%超高、豊田自動織機11%超安。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 10:25)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/JL54KTIOAJLCPOHBZDERBNRVOM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        〔マーケットアイ〕外為：ドル143円後半で横ばい、「下値の不安材料は剥落」
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日午前のドル/円は143円後半で朝方からほぼ変わらず。仲値後に一時144円前半へ上昇もすぐに戻した。市場では「ドル142円割れで下方リスク高まるも米中首脳会談期待で踏みとどまった。米指標や国債入札も通過し下値不安材料は剥落」との見方。一方、米中会談次第で再び下方リスクも意識され、144円台では伸び悩む展開。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 10:09)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/japan/funds/QASXI2ZIZFK7TPM456GFQDLCCM-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        豊田織株が急落、トヨタＧのＴＯＢ受け入れ発表でプレミアム期待剥落
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の東京市場で豊田自動織機株が急落。3日にトヨタグループによる買収提案受け入れと株式非公開化を発表、買付価格1万6300円が前日終値1万8400円を大きく下回り、さや寄せの動き。一時13%超安の1万5975円。「個人投資家中心にプレミアム期待あったが剥落」との声。12月上旬TOB開始目指す。株式持ち合いも解消へ。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 10:08)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/QBHXSGPSIVKTJJ2BUUIA4Z6FTY-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ウクライナ副首相と大統領府長官が訪米、支援を要請
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    ウクライナのスビリデンコ副首相とイェルマーク大統領府長官が3日訪米し、ウィットコフ特使らと会談、ロシアとの戦闘での支援を要請。「戦場の実情」を説明しウクライナ訪問を求めた。イェルマーク氏はロシアが停戦を望んでいないと非難し、首脳会談の用意があると説明。4日にはルビオ国務長官とも会談予定。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 10:01)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/world/security/ND5K2EKLINIBTLF53FXRCCHLSQ-2025-06-03/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米、シリア駐留軍8基地を1カ所に集約へ　新特使が方針転換表明
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米国はシリアの軍事基地を8カ所から1カ所に縮小するとバラック米シリア新特使が表明。過去のシリア政策は「効果なし」とし方針転換。米軍約2000人が駐留、大半は北東部に集中しIS復権阻止図る。東部デリゾール県から軍装備品が移動し北東部ハサカ県に集約中。クルド人勢力主体のSDFを新政府に統合することが重要と述べた。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 09:55)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://jp.reuters.com/markets/commodities/WWWZOXGZQBKTXLCJIJG37SG32Q-2025-06-04/" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        フランス・イタリア首脳会談、欧州の強化へ向け連携約束
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    フランスのマクロン大統領とイタリアのメローニ首相は3日パリで会談し、欧州強化へ向けた連携を約束。共同声明で「競争力強化と繁栄へ向けた欧州政策の積極的かつ迅速な実行に強い結束で臨む」と指摘。ウクライナへの「揺るぎない不変の」支援と欧州防衛力強化の必要性も強調。両首脳は来年初めにフランスで次回会談開催で合意。
-                </p>
-            </div>
-
-            <!-- Bloomberg ニュース記事カード -->
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 05:49)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXCG76T1UM0W00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        【米国市況】国債利回り急低下、９月利下げ観測強まる－142円台後半
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の米金融市場では国債利回りが急低下。民間雇用者数の伸び悩みや非製造業活動の縮小を受け、9月のFOMCでの利下げ観測が強まった。ドルは対円で一時142円61銭まで下落。株価はS&P500がほぼ変わらず。原油先物はサウジアラビア増産継続の意向報道で反落。金は米利下げ観測から反発した。米経済指標の軟化が市場心理に影響を与えている。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 02:04)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXCC5XT0AFB400" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米ロ首脳が電話会談、プーチン氏はウクライナ報復を警告－トランプ氏
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    トランプ米大統領はロシアのプーチン大統領との電話会談を明らかにし、最近のウクライナによるドローン攻撃にロシアが報復するとプーチン氏から警告を受けたと述べた。会談は1時間余り。トランプ氏はイラン核交渉についても協議し、プーチン氏が関与の可能性を示唆したと投稿。プーチン氏はイランとの議論参加意向を示したという。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:00)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXC2ROT0AFB400" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        【今朝の５本】仕事を始める前に読んでおきたい厳選ニュース
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    トランプ米大統領とプーチン露大統領が電話会談、ウクライナ攻撃への報復をプーチン氏が警告。米5月民間雇用者数は予想下回る3.7万人増。トランプ氏減税法案は財政赤字2.42兆ドル増見込み（CBO試算）。テスラFSD作動中の歩行者死亡事故でNHTSA調査。米地区連銀経済報告（ベージュブック）は経済活動若干鈍化、物価「緩やかに」上昇と指摘。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:00)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXB514T0AFB400" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        「複雑」な豊田織ＴＯＢスキーム、少数株主が阻止するにはハードルも
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    豊田自動織機のTOB価格が発表前株価を下回り株価急落。少数株主の不満も、トヨタグループ各社が4割超保有で阻止は困難か。アナリストは「少数株主に悪いディール」と指摘。阻止には約1億株の非応募が必要との試算も。企業統治や資本効率向上の声が高まる中、ディスカウントTOBは少数株主保護軽視と見なされる可能性。価格見直しの可能性も排除できず。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 07:16)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXB2RWT1UM0W00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        円は142円台後半に上昇、経済指標弱く米利下げ観測－ドル全面安
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    5日朝の東京外国為替市場で円相場は1ドル＝142円台後半に上昇。前日の弱い米経済指標を受け、米利下げ観測が強まりドルが全面安となった。米5月民間雇用者数は予想を下回り、非製造業活動も約1年ぶりに縮小。これにより米10年債利回りは低下した。本日の日本の30年債入札結果次第では、さらに円買い・ドル売りが進む可能性が指摘されている。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:17)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXC4JTT0G1KW00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        トランプ減税法案、米財政赤字を2.4兆ドル押し上げ－議会予算局
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米下院通過のトランプ大統領大型減税・歳出法案は、今後10年で米財政赤字を2兆4200億ドル（約350兆円）増やす見込みと米議会予算局（CBO）が試算。歳入3兆6700億ドル減、歳出1兆2500億ドル減が根拠。共和党財政タカ派の懸念強まる恐れ。マスク氏は法案を「忌まわしい愚策」と批判。CBOはトランプ氏関税政策で財政赤字2.8兆ドル縮小との見通しも。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 06:57)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXCKOKDWX2PS00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米半導体補助金の支給巡り、合意見直し作業中－ラトニック商務長官
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    ラトニック米商務長官は4日、CHIPS法に基づく半導体製造補助金支給を巡り、メーカーとの合意見直しを進めていると明言。「米国の納税者のため」により有利な条件確保が目的。TSMCが補助金66億ドルに対し、確約済650億ドル投資に加え1000億ドルの追加投資を発表した例を挙げた。トランプ大統領はCHIPS法廃止を求めてきた経緯がある。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 02:26)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXC1M5DWLU6800" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        韓国債に売り圧力、10年債利回り大幅上昇－新大統領の財政拡大に警戒
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    韓国国債市場に売り圧力。李在明新大統領の財政拡大路線への懸念が背景。3日の取引で韓国10年債利回りは10bp余り上昇し2.90%。30年債入札は低調。李氏は財政の強力活用を主張しており、国債増発観測が強まる。今年の国債発行額は過去最大予定だが、追加財政パッケージでさらに膨らむ可能性。来年の需給悪化も懸念される。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 07:00)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SX9XX5T0G1KW00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        伊藤忠が海外製薬企業の日本参入支援、｢ドラッグロス｣軽減へ－関係者
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    伊藤忠商事が海外製薬企業の日本市場参入支援事業を開始へ。子会社エイツーヘルスケアが薬事申請や臨床試験の知見を活かしコンサルや開発資金支援を行う。複雑な規制対応を助け「ドラッグロス」軽減を目指す。米子会社が新薬候補を探し、希少疾患向け新薬や新興企業製品を主にターゲットに。市場調査や製造・物流は伊藤忠のネットワークを活用。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 04:13)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXCFOKT0G1KW00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米地区連銀経済報告、経済活動は若干鈍化－物価「緩やかに」上昇
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    FRBが4日公表した地区連銀経済報告（ベージュブック）によると、米経済活動はここ数週間でわずかに鈍化。関税や不確実性が経済全体に波及。物価は「緩やかに」上昇し、今後はコスト・価格上昇ペース加速の見通しが広く報告された。関税関連コストの価格転嫁計画企業は3ヶ月以内に実行見通し。「関税」言及は122回と前回超。雇用は横ばい。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 04:54)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXCI69DWRGG000" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        中国レアアース規制、自動車大手から懸念の声－部品不足で生産停止も
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    中国のレアアース輸出規制で世界の自動車生産に支障の恐れ。米欧メーカーから部品不足リスクへの懸念相次ぐ。メルセデス・ベンツ、BMWはサプライヤーと協議。フォードは輸送遅延やコスト増が発生、先月シカゴ工場でSUV生産を1週間停止。中国は4月、トランプ関税への報復で一部レアアース輸出規制を導入。EVモーター等に不可欠。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 01:38)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXC7UZT0G1KW00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        銀行寄りのボウマン氏、ＦＲＢ副議長の席に最短距離－独立性守れるか
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    FRBのボウマン理事が近く銀行監督担当副議長に昇格見通し。銀行業界は資本規制案巻き戻しを求める同氏の姿勢を評価する一方、FRB独立性への懸念も。前任バー氏の突然の退任を受け、ボウマン氏は就任に意欲。同氏はバー氏提案の資本要件引き上げにしばしば反対。金融政策ではタカ派とされ、スタッフへの厳しい姿勢でも知られる。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 18:54)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXBGXWT0G1KW00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        中国がエアバス製航空機の発注検討、来月にも数百機規模－関係者
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    中国が来月にもエアバス製航空機を数百機規模で発注検討中と関係者。欧州首脳の訪中と重なる見通し。中国複数航空会社と協議中で、ナロー・ワイド両ボディ機対象、200～500機規模の可能性。実現すれば中国過去最大級。米中対立でボーイングが苦戦する中、エアバス優位鮮明に。多くはワイドボディ機、特にA330ネオの注文がありそう。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 05:51)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXCJ49DWLU6800" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        マスク氏、トランプ減税への批判さらに強める－「葬り去れ」と投稿
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    イーロン・マスク氏は4日、トランプ米大統領の大型減税・歳出法案への反発を強め、Xで同法案を「葬り去る」ため議員に働きかけるよう呼び掛けた。「米国を破綻させるのは絶対に許されない！」と訴えた。前日には財政破綻させる「愚策」と非難。ホワイトハウスは法案が「前例のない経済成長の時代を切り開く」と声明。ジョンソン下院議長もマスク氏見解を批判。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 05:16)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXCE65T1UM0W00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        円は年内５％超上昇も、日銀利上げリスクを市場は過小評価－ドイツ銀
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    ドイツ銀行は、金利市場が日銀の急激な利上げリスクを過小評価していると指摘し、円が対ドルで年末までに5%超上昇するとの予想を示した。マクロストラテジストのベイカー氏は「日銀にはまだやるべきことがある」とし、インフレの根強さから期待に影響を与え続けると分析。金利スワップ市場は年末までの利上げ幅を20bp未満と織り込んでいる。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 03:43)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXCFP2DWX2PS00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        カナダ中銀、２会合連続で金利据え置き－利下げの必要性にも言及
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    カナダ銀行は4日、政策金利を2.75%に据え置き。2会合連続で市場予想通り。米関税の影響で景気低迷しインフレ抑制なら利下げ必要の可能性も認識。マックレム総裁は「米関税と不透明感が継続する中で経済がさらに弱含み、インフレのコスト圧力が抑制されれば、政策金利を引き下げる必要が生じる可能性」と発言。カナダドルは対米ドルで年初来高値。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-05 00:35)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXC4AADWRGG000" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米ＩＳＭ非製造業指数、約１年ぶりの縮小圏転落－需要急減が響く
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    米5月ISM非製造業総合指数は約1年ぶりに縮小圏へ。需要急減が影響し、新規受注指数は前月比5.9ポイント低下の46.4と2024年6月以来の大幅落ち込み。事業活動指数も50と5年ぶり低水準。一方、関税引き上げで価格上昇は加速、仕入れ価格指数は68.7と2022年11月以来の高水準。関税影響が需要とインフレ双方に顕著化。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 21:14)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXBW5HDWRGG000" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ブルガリア、2026年にユーロ圏加盟の見通し－欧州委が承認を勧告
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    欧州委員会は4日、ブルガリアの2026年ユーロ導入承認を勧告。実現すれば21カ国目。欧州委とECBは、ブルガリアがインフレや公的債務など全導入要件を満たしたとの見解。フォンデアライエン委員長は「ユーロ導入でブルガリア経済はより強固に」と声明。今後EU加盟国の判断に委ねられ、6月首脳会議で協議、7月財務相会合で最終承認予定。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 18:52)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXBNH3DWLU6800" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        韓国李大統領が就任、経済復活誓う－米国との通商交渉が試金石に
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    韓国の李在明氏が4日大統領に就任。トランプ米大統領が鉄鋼・アルミ関税を2倍に引き上げたタイミングで、関税措置に脅かされる韓国経済の復活を約束。「国民生活と経済回復から始める」と述べ、国家予算を起爆剤に経済好循環を目指す。米国との通商交渉が外交と国内懸念のバランスを示す最初の試金石となる。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 16:01)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXB6YKT1UM0W00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        【日本市況】債券が下落、あすの30年国債入札を警戒－株式は反発
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    4日の日本市場は債券下落、株式反発。債券は翌日の30年債入札警戒で売られた。株式は4営業日ぶり反発、米求人件数堅調でリスク選好買い。円は144円挟みもみ合い。市場では「30年債入札はふたを開けてみないと分からず買い手控え」との声。日銀オペ結果で超長期ゾーン弱含みも重し。株式は金融株や半導体関連が上昇。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 01:33)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXC7FMT0AFB400" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        米企業は関税受けて迅速に値上げ、雇用調整は限定的－ＮＹ連銀調査
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    NY連銀の調査で、米企業が関税対応として迅速に価格引き上げ、人員削減は控えめだったことが判明。約3/4が関税コストの一部を消費者に転嫁。製造業の約1/3、サービス業のほぼ半数がコスト増を完全転嫁。関税影響ない財・サービスも値上げした企業が相当数。多くは1ヶ月以内に値上げ実施。米国内調達増やす企業も多数。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 14:00)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXB2M9T1UM0W00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        日本人の年間出生数が初の70万人割れ、出生率も過去最低－24年
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    2024年の日本人の年間出生数が初めて70万人を割り込み、68万6061人となった。合計特殊出生率も1.15と過去最低を更新し、9年連続で減少。政府は少子化対策を進めるが、目立った効果は出ていない。若年女性人口の減少、晩婚化・晩産化、経済的不安などが要因とみられる。一方、24年の婚姻件数は約1万組増加し、将来的な出生数の下支えとなるか注目される。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 08:00)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-03/SXAUO9T0AFB400" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        ＬＭＥ金属まちまち、米中の経済指標受け－銅は急落後に反発
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    3日のLME工業用金属相場はまちまち。米雇用市場の堅調な兆しが中国経済懸念を和らげた。アルミ・ニッケル・銅は一時急落（中国製造業PMI悪化で）も、米求人件数予想外増で上向きに転換。LME銅は18ドル高の9634ドル。アルミ0.1%安、ニッケル0.6%安。スズ2.2%高、亜鉛も小幅高。経済指標に一喜一憂する展開。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 15:03)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXB1B2T0G1KW00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        トランプ一族関連の暗号資産団体間に亀裂、ミームコイン巡り
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    トランプ米大統領関連の暗号資産団体間に亀裂の兆し。NFTマーケットプレイスのマジックエデンがトランプブランドの新サービス発表も、トランプ氏の息子が関与を即座に否定。一族の別団体ワールド・リバティ・ファイナンシャルが独自のウォレットを近く発表すると明かした。利益相反懸念が高まる中での内紛か。
-                </p>
-            </div>
-
-            <div class="news-card bg-gray-800 shadow-lg rounded-lg p-5 sm:p-6">
-                <p class="text-sm text-gray-400 mb-1">(2025-06-04 14:44)</p>
-                <h2 class="text-xl sm:text-2xl font-semibold mb-2">
-                    <a href="https://www.bloomberg.co.jp/news/articles/2025-06-04/SXB0HOT0G1KW00" target="_blank" class="text-blue-400 hover:text-blue-300">
-                        テスラ元幹部の新興企業、スターゲートに技術提供－変圧器不足に対応
-                    </a>
-                </h2>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    テスラ元幹部創業のヘロンパワー・エレクトロニクスが、AIインフラ投資プロジェクト「スターゲート」に変圧器不足対応技術を提供。スターゲートはオープンAI、オラクル、ソフトバンクG共同のプロジェクト。ヘロンパワーの装置は従来の変圧器を不要にし、再エネやデータセンターを電力網に直接接続可能に。電力安定供給を支援する。
-                </p>
-            </div>
-
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>ニュースサマリー</h1>
+        </header>
+        <br>
+
+        <!-- Reuters ニュース -->
+        <div class="article-card">
+            <h2>(2025-06-10 06:43) 米国株式市場＝Ｓ＆Ｐ・ナスダック上昇、米中貿易協議に注目</h2>
+            <p class="summary">9日の米国株式市場はS&P500とナスダック総合が上昇。アマゾンやグーグル親会社アルファベットが相場を牽引した。市場はロンドンで開始された米中通商協議の進展に期待感を示している。アマゾンはペンシルベニア州への大規模投資計画を発表し株価が上昇した一方、アップルは年次開発者会議の内容に目新しさがなく株価が下落した。</p>
+            <a href="https://jp.reuters.com/markets/us/IS7SMRE5DJPTHBXPS6JPBAXIRE-2025-06-09/" class="link" target="_blank" rel="noopener noreferrer">https://jp.reuters.com/markets/us/IS7SMRE5DJPTHBXPS6JPBAXIRE-2025-06-09/</a>
         </div>
-         <p class="text-center text-gray-500 mt-12 text-sm">
-            記事はロイターおよびブルームバーグニュースからのものです。
-        </p>
+
+        <div class="article-card">
+            <h2>(2025-06-10 06:19) ＮＹ市場サマリー（9日）Ｓ＆Ｐ・ナスダック上昇、ドル弱含み、利回り小幅低下</h2>
+            <p class="summary notice">この記事の本文は取得できませんでした。</p>
+            <a href="https://jp.reuters.com/markets/commodities/4FJRW2KAW5OIBGBA2UVTHD3IOU-2025-06-09/" class="link" target="_blank" rel="noopener noreferrer">https://jp.reuters.com/markets/commodities/4FJRW2KAW5OIBGBA2UVTHD3IOU-2025-06-09/</a>
+        </div>
+
+        <div class="article-card">
+            <h2>(2025-06-10 06:17) 米陸軍祝賀行事、数十万人の参加者想定　大規模警備態勢へ＝警護隊</h2>
+            <p class="summary">今月14日にワシントンで開催される米陸軍創設250周年祝賀行事に向けて、法執行機関が数十万人規模の参加者を想定し、大規模な警備体制を準備していることが分かった。大統領警護隊の特別捜査官が明らかにしたもので、全国から数千人規模の捜査官や警官が動員される見込み。FBIと首都警察は、現時点で確かな脅威はないとしている。</p>
+            <a href="https://jp.reuters.com/world/security/2L6FE3WGQFITFM32NA6JXLL2OM-2025-06-09/" class="link" target="_blank" rel="noopener noreferrer">https://jp.reuters.com/world/security/2L6FE3WGQFITFM32NA6JXLL2OM-2025-06-09/</a>
+        </div>
+
+        <div class="article-card">
+            <h2>(2025-06-10 06:12) ＥＣＢ利下げ停止「当面続く公算」＝オーストリア中銀総裁</h2>
+            <p class="summary">ECB理事会メンバーのホルツマン・オーストリア中銀総裁は、経済指標が悪化しなければECBの利下げ停止は当面続くとの見方を示した。一方で、経済情勢が悪化した場合は年内にさらなる利下げの可能性があるとも語った。同氏は先日の利下げに唯一反対したと報じられている。また、トランプ米政権の関税措置については「緩やかに楽観的」との見解を示した。</p>
+            <a href="https://jp.reuters.com/markets/japan/funds/WHLTUETIGNPSZFL3PH2C57QDBQ-2025-06-09/" class="link" target="_blank" rel="noopener noreferrer">https://jp.reuters.com/markets/japan/funds/WHLTUETIGNPSZFL3PH2C57QDBQ-2025-06-09/</a>
+        </div>
+
+        <div class="article-card">
+            <h2>(2025-06-10 06:08) トランプ氏、マスク氏のスターリンク「良いサービス」　中止の意向なし</h2>
+            <p class="summary">トランプ米大統領は9日、イーロン・マスク氏率いるスペースXの衛星通信サービス「スターリンク」について、良いサービスであり中止する意向はないと述べた。トランプ氏は記者団に対し、マスク氏の幸運を祈ると語ったが、同氏と話す考えはないことを改めて強調した。</p>
+            <a href="https://jp.reuters.com/world/us/4PVWCJHJMVP5VLO75DJXVSEOTI-2025-06-09/" class="link" target="_blank" rel="noopener noreferrer">https://jp.reuters.com/world/us/4PVWCJHJMVP5VLO75DJXVSEOTI-2025-06-09/</a>
+        </div>
+
+        <div class="article-card">
+            <h2>(2025-06-10 06:07) 米金融・債券市場＝利回り小幅低下、ＣＰＩや米中協議の行方に注目</h2>
+            <p class="summary">9日の米金融・債券市場では、利回りが小幅低下した。前週に好調な雇用統計で上昇した反動とみられる。市場は今週発表される5月の消費者物価指数（CPI）や、ロンドンで始まった米中通商協議の行方に注目している。エコノミストはコアCPIが前年比で若干上昇すると予想しており、FRBの早期利下げ観測に影響を与える可能性がある。</p>
+            <a href="https://jp.reuters.com/markets/japan/funds/XK5OY52MEBM3LNV7YLN5I3ONHU-2025-06-09/" class="link" target="_blank" rel="noopener noreferrer">https://jp.reuters.com/markets/japan/funds/XK5OY52MEBM3LNV7YLN5I3ONHU-2025-06-09/</a>
+        </div>
+
+        <div class="article-card">
+            <h2>(2025-06-10 06:05) ＮＹ外為市場＝ドル弱含み、米中貿易協議にらみ小動き</h2>
+            <p class="summary">9日のニューヨーク外為市場で、ドルは主要通貨に対して弱含みで推移した。市場の焦点はロンドンで開催中の米中貿易協議に移っている。ドル円は約0.2%下落し144.55円、ユーロドルは0.3%上昇した。市場関係者は、米中協議のポジティブなニュースは既に織り込み済みで、年後半に向けてFRBが緩和的になるとの見方から、ドルの長期的な信頼性に疑問を呈している。</p>
+            <a href="https://jp.reuters.com/markets/us/B2T4S3SVZZN4HJZ5US2RGE4X2A-2025-06-09/" class="link" target="_blank" rel="noopener noreferrer">https://jp.reuters.com/markets/us/B2T4S3SVZZN4HJZ5US2RGE4X2A-2025-06-09/</a>
+        </div>
+
+        <div class="article-card">
+            <h2>(2025-06-10 06:03) 米軍、ロサンゼルスに海兵隊700人派遣へ　移民デモ対応支援＝当局者</h2>
+            <p class="summary">米軍は、カリフォルニア州ロサンゼルスで続く移民取り締まりへの抗議活動に対応するため、約700人の海兵隊員を一時的に派遣する方針だ。米当局者が9日に明らかにした。これは追加の州兵が到着するまでの支援任務であり、反乱法の発動は予定されていないという。ただし、状況は流動的であるとの認識が示されている。</p>
+            <a href="https://jp.reuters.com/world/us/5N2LDLXXWBICPI4QVCUQVJTNJQ-2025-06-09/" class="link" target="_blank" rel="noopener noreferrer">https://jp.reuters.com/world/us/5N2LDLXXWBICPI4QVCUQVJTNJQ-2025-06-09/</a>
+        </div>
+
+        <div class="article-card">
+            <h2>(2025-06-10 06:00) 米中通商協議「良好な報告」とトランプ氏、輸出規制解除は「様子見」</h2>
+            <p class="summary">トランプ米大統領は9日、ロンドンで行われている米中通商協議について「良好な報告を受けている」と述べた。中国とは良好な関係を築いているとしつつも、簡単な相手ではないと指摘。レアアースを巡る米国の輸出規制の解除については「様子を見よう」と述べるにとどめた。今回の協議は、前回協議後に指摘された中国の合意履行遅延の軌道修正を図る目的がある。</p>
+            <a href="https://jp.reuters.com/markets/commodities/THQ2LM4PLFJZXN564NMJCEWO3M-2025-06-09/" class="link" target="_blank" rel="noopener noreferrer">https://jp.reuters.com/markets/commodities/THQ2LM4PLFJZXN564NMJCEWO3M-2025-06-09/</a>
+        </div>
+        
+        <!-- Bloomberg ニュース -->
+        <div class="article-card">
+            <h2>(2025-06-10 06:44) 米国防総省が海兵隊員700人派遣､ＬＡ抗議デモ対応で州兵支援－関係者</h2>
+            <p class="summary">トランプ米政権は、ロサンゼルスで続く不法移民摘発への抗議デモに対応するため、約700人の現役海兵隊員を派遣する方針だ。これは州兵を支援する目的だが、カリフォルニア州知事らは事態をエスカレートさせるとして反発している。知事は州兵派遣を巡り連邦政府を提訴。トランプ大統領は知事の逮捕を示唆するなど、両者の対立は激化している。</p>
+            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-09/SXLLOBDWX2PS00" class="link" target="_blank" rel="noopener noreferrer">https://www.bloomberg.co.jp/news/articles/2025-06-09/SXLLOBDWX2PS00</a>
+        </div>
+        
+        <div class="article-card">
+            <h2>(2025-06-10 06:00) 日銀は国債の減額幅をほぼ半分に、月間購入２兆円程度へ－前田元理事</h2>
+            <p class="summary">元日銀理事の前田栄治氏は、日銀が2026年4月以降の国債買い入れについて、現在の減額ペースを緩め、減額幅を現在の毎四半期4000億円から2000億円程度に半減させる可能性があるとの見方を示した。これにより月間購入額は2兆円程度となり、これを「暫定的な減額のゴール」と指摘。追加利上げは最も早くて10月、ターミナルレートは1.5～2％と予想している。</p>
+            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-09/SXK9BCT1UM0W00" class="link" target="_blank" rel="noopener noreferrer">https://www.bloomberg.co.jp/news/articles/2025-06-09/SXK9BCT1UM0W00</a>
+        </div>
+        
+        <div class="article-card">
+            <h2>(2025-06-10 07:00) 公的年金でＣＩＯ新設相次ぐ、ＧＰＩＦ出身者の起用も－進む運用改革</h2>
+            <p class="summary">公的年金や共済組合で最高投資責任者（CIO）の設置が相次いでいる。中小企業基盤整備機構や国家公務員共済組合連合会（KKR）などが専門ポストを新設し、年金積立金管理運用独立行政法人（GPIF）出身者らを起用。これまで硬直化しがちだった運用体制を改善し、高度化を図る狙いがある。政府の資産運用立国構想も後押ししており、今後は各基金の運用成果に差が出る可能性もある。</p>
+            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-09/SV9O05DWX2PS00" class="link" target="_blank" rel="noopener noreferrer">https://www.bloomberg.co.jp/news/articles/2025-06-09/SV9O05DWX2PS00</a>
+        </div>
     </div>
 </body>
 </html>
