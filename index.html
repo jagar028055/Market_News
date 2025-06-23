@@ -3,901 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マーケットニュースサマリー</title>
+    <title>ニュースダイジェスト</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* カスタムダークモードカラー */
         body {
             background-color: #121212;
             color: #e0e0e0;
-            font-family: 'Inter', sans-serif;
         }
         .news-card {
             background-color: #1e1e1e;
-            border: 1px solid #333;
         }
         .news-title {
             color: #bb86fc;
         }
-        .news-url {
+        .news-link {
             color: #03dac6;
-            word-break: break-all;
+        }
+        .news-link:hover {
+            color: #018786;
         }
     </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="p-4 sm:p-6 md:p-8">
+<body class="font-sans">
 
-    <h1 class="text-3xl font-bold text-center mb-8 text-white">マーケットニュースサマリー</h1>
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-100">ニュースダイジェスト</h1>
 
-    <div class="space-y-6">
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 07:06)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">トルコ中銀が主要政策金利据え置き、利下げ再開に布石との見方も</h2>
-            <p class="text-base mb-4">トルコ中央銀行は19日、主要政策金利を46％に据え置くと決定した。市場予想通りの結果だが、一部では利下げサイクル再開に向けた地ならしとの見方も出ている。中銀は物価安定まで引き締めスタンスを維持すると強調しつつ、基調的物価上昇率の減速にも言及した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/ABUPAQXTIVO6FA2JJN7PZHRVKY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/ABUPAQXTIVO6FA2JJN7PZHRVKY-2025-06-19/</a>
+        <!-- News Card: (2025-06-24 06:53) 米国務長官、中国にイランへの働きかけ要請　ホルムズ海峡封鎖阻止で -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:53)</p>
+            <h2 class="text-xl font-bold news-title mb-4">米国務長官、中国にイランへの働きかけ要請　ホルムズ海峡封鎖阻止で</h2>
+            <p class="text-gray-300 leading-relaxed">
+                ルビオ米国務長官は22日、イランがホルムズ海峡を封鎖しないよう中国に働きかけを要請した。米国によるイラン核施設攻撃を受けた措置。ルビオ氏は、海峡封鎖は大規模なエスカレーションとなり、米国や他国による対応を正当化するとの考えを示した。中国は同海峡の石油輸送に大きく依存している。
+            </p>
+            <a href="https://jp.reuters.com/world/security/MUARAPVVIFNIND2N3XUVV7V2SY-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/world/security/MUARAPVVIFNIND2N3XUVV7V2SY-2025-06-23/
+            </a>
         </div>
 
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 07:00)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">カナダ、対米鉄鋼・アルミ関税引き上げも　30日内の合意不成立なら</h2>
-            <p class="text-base mb-4">カナダのカーニー首相は19日、トランプ米大統領と30日以内に貿易協定で合意できなければ、米国製鉄鋼・アルミへの報復関税を引き上げる可能性を示唆した。米国が関税を50%に引き上げたことへの対抗措置で、7月21日に既存の関税率を調整すると述べ、交渉の行方が注目される。</p>
-            <a href="https://jp.reuters.com/markets/commodities/VNN6JTOSIRP7BLBKUI5WEBSQSQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/commodities/VNN6JTOSIRP7BLBKUI5WEBSQSQ-2025-06-19/</a>
+        <!-- News Card: (2025-06-24 06:45) 中南米金融市場＝株式下落、中東情勢緊迫受け　通貨は横ばい -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:45)</p>
+            <h2 class="text-xl font-bold news-title mb-4">中南米金融市場＝株式下落、中東情勢緊迫受け　通貨は横ばい</h2>
+            <p class="text-gray-300 leading-relaxed">
+                23日の中南米金融市場では、米国による核施設攻撃へのイランの報復を受け、株式が下落した。MSCI中南米株価指数は0.6%安、特にアルゼンチンのメルバル指数は4.3%下落し2カ月超ぶりの安値を記録した。一方、通貨はドルの下落などを背景に横ばいで推移し、中南米通貨指数はほぼ変わらずだった。
+            </p>
+            <a href="https://jp.reuters.com/markets/japan/funds/7DFN3EE7AVOFDKUKXYC5YN6ECE-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/markets/japan/funds/7DFN3EE7AVOFDKUKXYC5YN6ECE-2025-06-23/
+            </a>
         </div>
 
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 07:00)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">国債発行修正案の報道で金利低下、出尽くし感も　需給安定には見方交錯</h2>
-            <p class="text-base mb-4">財務省が2025年度国債発行計画の修正案で超長期債の発行を減額する方針との報道を受け、19日の円債市場では中長期債金利が低下した。需給改善への期待から歓迎する声がある一方、減額幅が市場の織り込み済みとの見方から材料出尽くし感も広がり、市場安定への効果には見方が分かれている。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/7QDCWZMNJJIV3OQYKNASM6BOTY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/7QDCWZMNJJIV3OQYKNASM6BOTY-2025-06-19/</a>
+        <!-- News Card: (2025-06-24 06:44) ＮＹ市場サマリー（23日）ドル下落、株上昇・利回り低下 -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:44)</p>
+            <h2 class="text-xl font-bold news-title mb-4">ＮＹ市場サマリー（23日）ドル下落、株上昇・利回り低下</h2>
+            <p class="text-gray-300 leading-relaxed">
+                23日のNY市場では、FRBボウマン副議長の利下げ支持発言や、イランの報復が限定的との見方からドルが下落。株価は上昇し、テスラはロボタクシー始動を好感され8.2%急伸した。国債利回りも低下した。一方、原油先物はイランがホルムズ海峡の通航を妨害しなかったため大幅下落した。
+            </p>
+            <a href="https://jp.reuters.com/markets/commodities/F4XRIDZ7YNIPTPM3AC5ACXIAAQ-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/markets/commodities/F4XRIDZ7YNIPTPM3AC5ACXIAAQ-2025-06-23/
+            </a>
         </div>
 
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 07:00)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">焦点：すれ違った関税交渉、米は医薬品と半導体への投資を要求</h2>
-            <p class="text-base mb-4">日米関税交渉において、米国側が日本に対し、医薬品や半導体分野での新規投資を求めていたことが分かった。日本側が重視する自動車関税の引き下げ交渉は平行線をたどり、両国の要求の隔たりが浮き彫りになった。政府内からは、交渉を一度リセットすべきとの声も上がっている。</p>
-            <a href="https://jp.reuters.com/world/security/G52D7PAVXRPH7LG472HSWYF6ZM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/security/G52D7PAVXRPH7LG472HSWYF6ZM-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 06:27)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">中南米金融市場＝通貨続落、中東情勢注視　株式はまちまち</h2>
-            <p class="text-base mb-4">19日の中南米金融市場は、イスラエルとイランの緊張の高まりを背景に通貨が続落した。米国の祝日で薄商いの中、メキシコペソやコロンビアペソなどが下落。一方、株式市場はまちまちの展開となり、メキシコ株やチリ株は下落したが、アルゼンチン株は小幅に上昇した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/XEXZCQ4VURJF5NDRYMR3UNWRKI-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/XEXZCQ4VURJF5NDRYMR3UNWRKI-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 06:20)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">イラン指導部の崩壊、「目標ではないが起こり得る」＝イスラエル首相</h2>
-            <p class="text-base mb-4">イスラエルのネタニヤフ首相は19日、イラン指導部の交代や崩壊はイスラエルの攻撃目的ではないが、結果として起こり得るとの見解を示した。イラン国民の問題だと強調しつつ、イスラエルにはイランの核施設を全て撤去する力があると主張。米国も2週間以内に紛争への介入を決定すると発表した。</p>
-            <a href="https://jp.reuters.com/world/security/TG7OND44HNNIZNIUZN23RNIMTM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/security/TG7OND44HNNIZNIUZN23RNIMTM-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 05:57)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">原油先物3％高、イスラエル・イラン紛争への米関与巡り不透明感</h2>
-            <p class="text-base mb-4">19日の原油先物価格は約3%上昇した。イスラエルによるイラン核施設攻撃を受け、紛争への米国の関与を巡る不透明感から投資家の不安が高まったことが要因。北海ブレント先物は78.85ドル、米WTI先物は77.20ドルと、共に今年1月以来の高値を記録した。</p>
-            <a href="https://jp.reuters.com/markets/commodities/26YRQ4IMORKG3PAKTSSP7C2TDU-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/commodities/26YRQ4IMORKG3PAKTSSP7C2TDU-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 05:37)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">トランプ氏、イスラエル・イラン紛争への対応を2週間以内に決定へ</h2>
-            <p class="text-base mb-4">ホワイトハウスは19日、トランプ大統領がイスラエルとイランの紛争に米国が介入するかどうかを今後2週間以内に決定すると発表した。大統領は外交的解決に関心を示しつつ、イランが核兵器を保有不能にすることが最優先事項だとし、イランのウラン濃縮を禁止する合意を求めている。</p>
-            <a href="https://jp.reuters.com/world/us/GU3KQJP7GFMRLBQ5EHYGR5NJOY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/us/GU3KQJP7GFMRLBQ5EHYGR5NJOY-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 05:20)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">イラン外相と米特使、複数回の電話会談　事態打開探る＝外交筋</h2>
-            <p class="text-base mb-4">米国のウィットコフ中東担当特使とイランのアラクチ外相が、イスラエルによるイラン攻撃を巡り、事態打開のため複数回電話で協議した。イラン側はイスラエルの攻撃停止を交渉再開の条件とし、米国に戦争終結を迫るよう要求。米国が応じれば核問題で柔軟性を示すと伝えた模様。</p>
-            <a href="https://jp.reuters.com/world/security/MKQ3J4COCRKR5HRWTVDTAMNBP4-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/security/MKQ3J4COCRKR5HRWTVDTAMNBP4-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 05:18)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＴｉｋＴｏｋ売却期限、9月17日まで再延長　トランプ氏が大統領令</h2>
-            <p class="text-base mb-4">トランプ米大統領は19日、中国バイトダンスに対し、短編動画アプリ「TikTok」の米国事業を売却する期限を90日間延長する大統領令に署名した。新たな期限は9月17日となり、これで3回目の延長となる。米国の安全保障上の懸念から、売却交渉の行方が引き続き注目される。</p>
-            <a href="https://jp.reuters.com/world/security/ETQ5NRTDENPLDM53FBUYUNWY5U-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/security/ETQ5NRTDENPLDM53FBUYUNWY5U-2025-06-19/</a>
+        <!-- News Card: (2025-06-24 06:31) 米国株式市場＝上昇、ＦＲＢ当局者の利下げ発言を好感　テスラ急伸 -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:31)</p>
+            <h2 class="text-xl font-bold news-title mb-4">米国株式市場＝上昇、ＦＲＢ当局者の利下げ発言を好感　テスラ急伸</h2>
+            <p class="text-gray-300 leading-relaxed">
+                23日の米国株式市場は、FRBのボウマン副議長による利下げ支持発言が好感され上昇した。この発言は中東情勢の不透明感を相殺し、主要3指数が軒並み上昇。特にテスラは、テキサス州でのロボタクシーサービス開始を受け8.2%急伸した。S&P500ではエネルギーセクターのみが下落した。
+            </p>
+            <a href="https://jp.reuters.com/markets/us/76VROEVDARPUJPLBUSLOVCFKJY-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/markets/us/76VROEVDARPUJPLBUSLOVCFKJY-2025-06-23/
+            </a>
         </div>
         
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 03:38)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">欧州市場サマリー（19日）</h2>
-            <p class="text-base mb-4">19日の欧州市場は中東情勢の緊迫化を背景にリスク回避の動きが強まった。外国為替市場では安全資産としてドルが買われ、株式市場は軒並み下落。STOXX600指数は3日続落し1カ月超ぶりの安値を付けた。一方、原油価格の上昇を受け石油・ガス関連株は堅調だった。</p>
-            <a href="https://jp.reuters.com/markets/europe/ABAN2MQATNLW3BVPAIUNEH7WQE-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/europe/ABAN2MQATNLW3BVPAIUNEH7WQE-2025-06-19/</a>
+        <!-- News Card: (2025-06-24 06:25) スターバックス株、時間外取引で上昇－中国事業売却検討の報道 -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:25)</p>
+            <h2 class="text-xl font-bold news-title mb-4">スターバックス株、時間外取引で上昇－中国事業売却検討の報道</h2>
+            <p class="text-gray-300 leading-relaxed">
+                23日、米スターバックスが中国事業の全面売却を検討していると財新が報じた。これを受け、同社株は時間外取引で1.8%上昇した。報道によると、スターバックスはヒルハウス・キャピタルなど十数の買い手候補と予備的な協議を行ったという。同社からの正式なコメントはまだ得られていない。
+            </p>
+            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-23/SYBUR5DWLU6800" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://www.bloomberg.co.jp/news/articles/2025-06-23/SYBUR5DWLU6800
+            </a>
         </div>
 
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 03:19)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ロンドン株式市場＝2週間ぶり安値、中東情勢受けリスクテイク抑制</h2>
-            <p class="text-base mb-4">19日のロンドン株式市場は、FTSE100種指数が0.6%安と2週間ぶりの安値で取引を終えた。中東情勢の激化とイングランド銀行の金利据え置きを受け、リスク回避の動きが強まった。ポンド高も重しとなったが、原油高で石油大手シェルやBPが上昇し、指数の下落は限定的だった。</p>
-            <a href="https://jp.reuters.com/markets/europe/IN35FRSL3BIV3AVUAVZYYE3ABY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/europe/IN35FRSL3BIV3AVUAVZYYE3ABY-2025-06-19/</a>
+        <!-- News Card: (2025-06-24 06:20) 米下院議長、対イラン軍事制限法案の採決拒否　米軍基地への攻撃始まる中 -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:20)</p>
+            <h2 class="text-xl font-bold news-title mb-4">米下院議長、対イラン軍事制限法案の採決拒否　米軍基地への攻撃始まる中</h2>
+            <p class="text-gray-300 leading-relaxed">
+                ジョンソン米下院議長は23日、イランによるカタールの米軍基地へのミサイル攻撃が始まる中、トランプ大統領の対イラン軍事力行使を抑制する法案の採決を拒否した。同議長は「今は戦争権限決議案を採決するのに適切な時期ではない」と述べた。法案は共和党と民主党の一部議員から提出されていた。
+            </p>
+            <a href="https://jp.reuters.com/world/us/4JNPULOOJFIMFJ7NVBQE24XHZM-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/world/us/4JNPULOOJFIMFJ7NVBQE24XHZM-2025-06-23/
+            </a>
         </div>
 
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 01:14)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">欧州外為市場＝ドル小幅上昇、地政学リスク受けた安全資産需要で</h2>
-            <p class="text-base mb-4">19日の欧州外国為替市場でドルが小幅上昇した。中東情勢の緊迫化を背景に、安全資産としてのドル需要が高まった。イングランド銀行やスイス中銀の金利政策決定も注目されたが、地政学的リスクが市場の主なテーマとなり、ユーロは下落し、ドル円は上昇した。</p>
-            <a href="https://jp.reuters.com/markets/us/NQRAIUHRWVNITMYDVLRD5K6P4Q-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/us/NQRAIUHRWVNITMYDVLRD5K6P4Q-2025-06-19/</a>
+        <!-- News Card: (2025-06-24 06:18) 米・イラン対立激化懸念高まる、トランプ氏支持率低下＝ロイター／イプソス調査 -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:18)</p>
+            <h2 class="text-xl font-bold news-title mb-4">米・イラン対立激化懸念高まる、トランプ氏支持率低下＝ロイター／イプソス調査</h2>
+            <p class="text-gray-300 leading-relaxed">
+                ロイター／イプソスの世論調査で、米国のイラン核施設攻撃後、米国民の79%がイランによる報復を懸念していることが判明した。調査はイランの報復攻撃前に締め切られた。空爆継続の支持は32%にとどまり、49%が反対。トランプ大統領の支持率は41%に低下し、2期目就任以降で最低となった。
+            </p>
+            <a href="https://jp.reuters.com/world/us/LUS24FZBTZODZFAQDXIYVL66FQ-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/world/us/LUS24FZBTZODZFAQDXIYVL66FQ-2025-06-23/
+            </a>
         </div>
 
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 01:01)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">トランプ氏、ＦＲＢに2.5％の利下げ要求　「数千億ドルの損害」</h2>
-            <p class="text-base mb-4">トランプ米大統領は19日、FRBに対し政策金利を2.5%ポイント引き下げるべきだと改めて主張した。自身のSNSで「パウエル議長はわが国に数千億ドルの損害を与えている」と投稿し、利下げをしないFRBの姿勢を強く批判した。FRBは前日に金利据え置きを決定している。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/BJB37UXPNRMYROMITRVVE5QPZ4-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/BJB37UXPNRMYROMITRVVE5QPZ4-2025-06-19/</a>
+        <!-- News Card: (2025-06-24 06:18) 原油先物7％超安、イランが米軍基地攻撃も原油輸送は妨害せず -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:18)</p>
+            <h2 class="text-xl font-bold news-title mb-4">原油先物7％超安、イランが米軍基地攻撃も原油輸送は妨害せず</h2>
+            <p class="text-gray-300 leading-relaxed">
+                23日の米国時間、原油先物価格が7%超下落した。イランが米国の核施設空爆への報復としてカタールの米軍基地を攻撃したものの、重要な輸送路であるホルムズ海峡のタンカー航行を妨害しなかったため。北海ブレント先物は7.2%安の71.48ドル、WTI先物も7.2%安の68.51ドルとなった。
+            </p>
+            <a href="https://jp.reuters.com/markets/commodities/ZJKS4YD23VPVXADWCP2LZ6GXEY-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/markets/commodities/ZJKS4YD23VPVXADWCP2LZ6GXEY-2025-06-23/
+            </a>
         </div>
 
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 00:58)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">スペースＸ「スターシップ」、試験飛行準備中に爆発　失敗相次ぐ</h2>
-            <p class="text-base mb-4">イーロン・マスク氏率いるスペースXの巨大ロケット「スターシップ」が18日夜、テキサス州での地上試験中に爆発した。火星ロケット計画は試験段階での失敗が続いており、先月の打ち上げでも飛行中に不具合が発生していた。同社は「重大な異常が発生した」と説明している。</p>
-            <a href="https://jp.reuters.com/markets/commodities/DJWW7647FNJFRJNGD3HGUXVS2Q-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/commodities/DJWW7647FNJFRJNGD3HGUXVS2Q-2025-06-19/</a>
+        <!-- News Card: (2025-06-24 06:08) ＮＹ外為市場＝ドル下落、ＦＲＢ当局者の利下げ支持発言受け -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:08)</p>
+            <h2 class="text-xl font-bold news-title mb-4">ＮＹ外為市場＝ドル下落、ＦＲＢ当局者の利下げ支持発言受け</h2>
+            <p class="text-gray-300 leading-relaxed">
+                23日のNY外為市場でドルが下落した。FRBのボウマン副議長がインフレ抑制を条件に次回会合での利下げ支持を表明したことや、イランの報復が限定的との見方が広がったことが背景。主要通貨に対するドル指数は0.32%安の98.45となった。市場は年内計58bpの利下げを織り込んでいる。
+            </p>
+            <a href="https://jp.reuters.com/markets/us/VNZGPROJSZI5NPCXDIPBOQCG5A-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/markets/us/VNZGPROJSZI5NPCXDIPBOQCG5A-2025-06-23/
+            </a>
         </div>
 
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 00:57)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＥＣＢ、インフレ目標達成に向けあらゆる努力継続＝独連銀総裁</h2>
-            <p class="text-base mb-4">ECB理事会メンバーのナーゲル独連銀総裁は19日、インフレ率2%の目標達成に向け、ECBは必要なあらゆる努力を続けると表明した。インフレ対策の使命はほぼ達成されたとしつつ、物価安定の完遂を強調。金融政策は正しい道を歩んでいると述べ、目標達成に自信を示した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/JHPBMTZ3DZMFBACQMBZW26Y4QE-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/JHPBMTZ3DZMFBACQMBZW26Y4QE-2025-06-19/</a>
+        <!-- News Card: (2025-06-24 06:05) 米国が攻撃したイランの拠点、「完全に破壊された」＝トランプ大統領 -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:05)</p>
+            <h2 class="text-xl font-bold news-title mb-4">米国が攻撃したイランの拠点、「完全に破壊された」＝トランプ大統領</h2>
+            <p class="text-gray-300 leading-relaxed">
+                トランプ米大統領は23日、SNSへの投稿で、週末に米軍が攻撃したイランの施設は全て「完全に破壊された」と述べた。大統領は「誰もがそれを知っている」と強調し、一部メディアが遺跡が「かなり破壊された」と報じたことを批判した。この発言は、米軍の攻撃の成果を誇示するものと見られる。
+            </p>
+            <a href="https://jp.reuters.com/world/us/JCXQI5WESZNM5PW52WD36XBCMM-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/world/us/JCXQI5WESZNM5PW52WD36XBCMM-2025-06-23/
+            </a>
+        </div>
+
+        <!-- News Card: (2025-06-24 05:48) ノーザン・トラスト、独立維持の方針表明－ＢＮＹが関心との報道受け -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 05:48)</p>
+            <h2 class="text-xl font-bold news-title mb-4">ノーザン・トラスト、独立維持の方針表明－ＢＮＹが関心との報道受け</h2>
+            <p class="text-gray-300 leading-relaxed">
+                米金融機関ノーザン・トラストは、バンク・オブ・ニューヨーク・メロン（BNYメロン）が合併に関心を示しているとの報道を受け、独立企業として存続する方針を表明した。同社の広報担当は「独立を維持し、ステークホルダーに長期的価値を提供し続ける」と説明。市場の臆測にはコメントしないとした。
+            </p>
+            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-23/SYBSTPDWRGG000" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://www.bloomberg.co.jp/news/articles/2025-06-23/SYBSTPDWRGG000
+            </a>
+        </div>
+
+        <!-- News Card: (2025-06-24 05:31) イラン、カタールの米空軍基地に報復攻撃　米国に事前に通知し死傷者なし -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 05:31)</p>
+            <h2 class="text-xl font-bold news-title mb-4">イラン、カタールの米空軍基地に報復攻撃　米国に事前に通知し死傷者なし</h2>
+            <p class="text-gray-300 leading-relaxed">
+                イランは23日、米国の核施設空爆への報復としてカタールのアルウデイド米軍基地をミサイル攻撃した。トランプ米大統領は、イランが事前に通告したため死傷者は出なかったと述べ、イランに感謝の意を表明。イランのハメネイ師は侵略は受け入れないとしながらも、報復継続を示唆した。
+            </p>
+            <a href="https://jp.reuters.com/markets/commodities/NWQHVFBRPZO43MZZXAXG24UCNQ-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/markets/commodities/NWQHVFBRPZO43MZZXAXG24UCNQ-2025-06-23/
+            </a>
+        </div>
+
+        <!-- News Card: (2025-06-24 04:34) 欧州市場サマリー（23日） -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-24 04:34)</p>
+            <h2 class="text-xl font-bold news-title mb-4">欧州市場サマリー（23日）</h2>
+            <p class="text-gray-300 leading-relaxed">
+                23日の欧州市場では、米のイラン攻撃を受けた中東情勢の緊迫化を背景に、株式市場が反落した。ロンドンFTSE100は約3週間ぶり安値。ポンド高も重荷となった。一方、ユーロ圏国債利回りは原油価格下落でインフレ懸念が和らぎ、ほぼ横ばいで推移した。
+            </p>
+            <a href="https://jp.reuters.com/markets/europe/K52YK44UMJOOJNQGR3VOKD4PHE-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/markets/europe/K52YK44UMJOOJNQGR3VOKD4PHE-2025-06-23/
+            </a>
         </div>
         
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 00:54)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">英中銀、政策金利据え置き　労働市場低迷とエネ価格上昇を注視</h2>
-            <p class="text-base mb-4">イングランド銀行は19日、政策金利を4.25%に据え置いた。金融政策委員会は6対3で決定し、3人が利下げを主張した。労働市場の軟化が見られる一方、中東情勢によるエネルギー価格上昇のリスクを注視する姿勢を示し、今後の利下げは「緩やかで慎重な」アプローチを維持する。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/H3M2IS3ZIFOCXFKHK3L677CZC4-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/H3M2IS3ZIFOCXFKHK3L677CZC4-2025-06-19/</a>
-        </div>
+        <!-- ... More news cards will follow the same pattern ... -->
         
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 00:45)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ユーロ圏金融・債券市場＝利回り小幅上昇、米国の中東関与巡る不透明感続く</h2>
-            <p class="text-base mb-4">19日のユーロ圏債券市場では、イスラエルとイランの紛争への米国の関与を巡る不透明感から、利回りが小幅に上昇した。投資家の慎重姿勢が続く中、ドイツ10年債利回りは2.51%に上昇。一方、スイス中銀は利下げ、英中銀は金利据え置きを決定し、各国の金融政策に違いが見られた。</p>
-            <a href="https://jp.reuters.com/markets/europe/X7H66ZGBJ5IJ3F2MXM7EDSXTPE-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/europe/X7H66ZGBJ5IJ3F2MXM7EDSXTPE-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 00:19)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">スイス中銀、0.25％利下げ　政策金利ゼロに</h2>
-            <p class="text-base mb-4">スイス国立銀行は19日、政策金利を0.25%引き下げ、ゼロ金利とすることを決定した。インフレ率の低下やスイスフラン高、米国の通商政策による不確実性を背景とした市場予想通りの利下げ。中銀は世界経済の鈍化を指摘し、追加利下げの可能性も示唆している。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/F3O6K46ZZNNLNK3KFCAN4F7BWQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/F3O6K46ZZNNLNK3KFCAN4F7BWQ-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 21:53)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">中ロ首脳が電話会談、イスラエルのイラン攻撃を非難</h2>
-            <p class="text-base mb-4">ロシアのプーチン大統領と中国の習近平国家主席は19日の電話会談で、イスラエルによるイラン攻撃を非難し、地域の緊張緩和の必要性で一致した。両首脳は国連憲章違反だとし、軍事的解決策はないと強調。プーチン氏は仲介に意欲を示し、習氏は支持を表明した。</p>
-            <a href="https://jp.reuters.com/world/security/PE5CF26CJBO7FETD5UO3636RRY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/security/PE5CF26CJBO7FETD5UO3636RRY-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 19:56)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">台湾中銀、政策金利据え置き　年内の利下げ示唆せず</h2>
-            <p class="text-base mb-4">台湾中央銀行は19日、政策金利を2%に据え置くことを決定した。好調な経済とインフレ鈍化が背景にあり、全会一致での決定。楊金龍総裁は、経済が悪化しインフレが大幅に低下しない限り、利下げの必要はないとの見方を示し、年内の利下げの可能性を事実上否定した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/5XLYEKXCWFOCPOJ7GXAR52QDUE-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/5XLYEKXCWFOCPOJ7GXAR52QDUE-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 19:54)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＥＣＢ、政策変更なら利下げの可能性高い＝仏中銀総裁</h2>
-            <p class="text-base mb-4">ECB理事のビルロワドガロー仏中銀総裁は18日、ECBが今後6カ月以内に政策金利を変更する場合、利下げとなる可能性が高いとの見解を示した。ただし、中東情勢などの大きな外的ショックがないことが前提となる。エネルギー価格の動向を注視し、機敏に対応する必要性を強調した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/QCGXMTXCTVIUHMOSSEIFDRLGHY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/QCGXMTXCTVIUHMOSSEIFDRLGHY-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 19:46)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">アジア株式市場サマリー：引け（19日）</h2>
-            <p class="text-base mb-4">19日のアジア株式市場は、中東情勢の緊迫化を受け、総じて下落した。中国・香港市場は幅広いセクターで売られ、上海総合指数、ハンセン指数共に下落。一方、ソウル市場はIT株が相場を支え4日続伸。シドニー市場は金融株が上昇したものの、鉱業株が響き3日続落した。</p>
-            <a href="https://jp.reuters.com/markets/asia/PLUP547V3RJDJJEY76C53WDPHU-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/asia/PLUP547V3RJDJJEY76C53WDPHU-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 19:29)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ノルウェー中銀、予想外の利下げ　25年中の追加緩和に含み</h2>
-            <p class="text-base mb-4">ノルウェー中央銀行は19日、政策金利を0.25%ポイント引き下げ4.25%にすると発表した。5年ぶりの利下げで市場の予想に反する結果となった。インフレ見通しの改善を理由に挙げており、2025年中にさらに1〜2回の追加利下げの可能性があることを示唆した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/F7F2GTNNFBOT3DAGOKIPEMFUEY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/F7F2GTNNFBOT3DAGOKIPEMFUEY-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 19:05)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">米民主党、支持者6割が指導部交代望む　「経済に焦点を」＝調査</h2>
-            <p class="text-base mb-4">ロイター／イプソスの世論調査で、民主党支持者の62%が指導部の交代を望んでいることが判明した。現指導部が経済問題よりもトランスジェンダーの権利などに重点を置きすぎているとの不満が背景にある。特に若年層でその傾向が顕著で、生活費など身近な問題への注力を求めている。</p>
-            <a href="https://jp.reuters.com/world/us/UK5YOEOMPNI5XBNEKSROMOR6JY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/us/UK5YOEOMPNI5XBNEKSROMOR6JY-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 18:47)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">フィリピン中銀、2会合連続の利下げ　追加緩和示唆</h2>
-            <p class="text-base mb-4">フィリピン中央銀行は19日、主要政策金利を25bp引き下げ5.25%とし、2会合連続の利下げを決定した。インフレリスクを注視しつつも、景気支援のために追加緩和の可能性を示唆。レモロナ総裁は、あと1回の25bp利下げが可能だと述べた。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/QKFCBLANTBO5BHHKW52LVJRYRU-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/QKFCBLANTBO5BHHKW52LVJRYRU-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 18:31)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">自民が参院選公約発表、最大4万円給付　米関税対策「十分な予算確保」</h2>
-            <p class="text-base mb-4">自民党は19日、参院選公約を発表した。物価対策として国民1人当たり最大4万円の給付を盛り込み、米国の関税措置に対しては「十分な予算を確保する」と明記。2040年までにGDP1000兆円、平均所得5割増を目指す方針も示し、経済再生への意欲を強調した。</p>
-            <a href="https://jp.reuters.com/world/japan/737FLBO3QNLXLBILTKNCWEF7ZM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/japan/737FLBO3QNLXLBILTKNCWEF7ZM-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 18:20)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">中国・香港株式市場・大引け＝下落、中東情勢の緊張高まる</h2>
-            <p class="text-base mb-4">19日の中国・香港株式市場は、中東情勢の緊迫化を受けて下落した。投資家心理が悪化し、幅広いセクターで売りが出た。上海総合指数は0.79%安、香港ハンセン指数は1.99%安と4月以来の大幅安を記録。テクノロジー株やヘルスケア株の下げが目立った。</p>
-            <a href="https://jp.reuters.com/markets/asia/MTUFKI3EAFOA7BPFAQMUM23BDA-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/asia/MTUFKI3EAFOA7BPFAQMUM23BDA-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 18:05)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">インドネシア中銀、為替介入　ルピア安受け</h2>
-            <p class="text-base mb-4">インドネシア中央銀行は19日、通貨ルピアが対ドルで1カ月ぶりの安値に下落したことを受け、為替介入を実施した。当局者は、前日の米金利据え置きや中東情勢の緊迫化がルピア安の原因だと指摘。為替相場の安定を維持し、景気回復を支援する姿勢を強調した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/NCGKSB6J5FJKPAD6G6XCUEZF5M-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/NCGKSB6J5FJKPAD6G6XCUEZF5M-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 18:01)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＴＤＫ、米スマートグラスのソフトアイ社を買収</h2>
-            <p class="text-base mb-4">TDKは19日、スマートグラス向け技術を開発する米ソフトアイ社の買収を発表した。買収額は1億ドル未満とみられる。TDKはスマホやスマートグラス向け小型電池を供給しており、今回の買収でAI関連への投資を強化し、成長を加速させる狙いがある。</p>
-            <a href="https://jp.reuters.com/economy/industry/KMANW2H7U5P2FM4SUFZQ6K333M-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/economy/industry/KMANW2H7U5P2FM4SUFZQ6K333M-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 17:46)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ロシアは景気後退の瀬戸際、経済相が警告　中銀は過熱脱却と分析</h2>
-            <p class="text-base mb-4">ロシアのレシェトニコフ経済発展相は19日、国内経済が景気後退の瀬戸際にあると警告した。一方、中央銀行のナビウリナ総裁は、現在の成長減速は「経済の過熱状態からの脱却」との見解を示し、両者の認識に食い違いが見られる。高金利が投資を阻害しているとの企業からの不満も出ている。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/G7IHXYY7RROE5KHMK6JYLB7WJM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/G7IHXYY7RROE5KHMK6JYLB7WJM-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 17:21)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">大幸薬品、正露丸の主成分がアニサキスの運動抑制　株価急伸</h2>
-            <p class="text-base mb-4">大幸薬品は19日、「正露丸」の主成分である木クレオソートが、寄生虫アニサキスの運動を抑制する効果を持つ可能性があると発表した。国立感染症研究所との共同研究で確認された。この発表を受け、同社の株価は急伸し、前営業日比15.7%高で取引を終えた。</p>
-            <a href="https://jp.reuters.com/business/DBJAL6I4F5PENPJEH7HTKQUALM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/business/DBJAL6I4F5PENPJEH7HTKQUALM-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 17:16)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">セブン銀、セブン＆アイの連結子会社から持ち分法適用会社に</h2>
-            <p class="text-base mb-4">セブン＆アイ・ホールディングスは19日、傘下の3社が保有するセブン銀行の株式を一部売却し、自社株買いに応募すると発表した。これによりセブン銀行はセブン＆アイの連結子会社から外れ、持ち分法適用会社となる。セブン＆アイはコンビニ事業への注力を加速させる方針。</p>
-            <a href="https://jp.reuters.com/markets/global-markets/S3ACX7TZ2FJXTON464C7ZCM4V4-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/global-markets/S3ACX7TZ2FJXTON464C7ZCM4V4-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 16:45)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＮＺ、クック諸島への資金援助停止　中国と関係強化を懸念</h2>
-            <p class="text-base mb-4">ニュージーランド政府は19日、自治領クック諸島への資金援助を停止したと発表した。クック諸島が中国との関係を深めていることに懸念を示しており、関係修復に向けた具体的な措置が講じられるまで、大規模な新規資金拠出は行わないとしている。</p>
-            <a href="https://jp.reuters.com/world/china/ZNDUMGK2EVKDXHU6EGGELQ2KW4-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/china/ZNDUMGK2EVKDXHU6EGGELQ2KW4-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 16:35)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">日経平均は4日ぶり反落、中東懸念くすぶる</h2>
-            <p class="text-base mb-4">19日の東京株式市場で日経平均株価は4日ぶりに反落し、396円安の3万8488円で取引を終えた。中東情勢の緊迫化への警戒感がくすぶり、利益確定売りが優勢となった。前日までの3連騰の反動も意識され、半導体関連株などが軟調に推移した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/HRKWWNQSMNJTLMM2YGXJA46GKQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/HRKWWNQSMNJTLMM2YGXJA46GKQ-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 16:30)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">トランプ氏、パキスタン軍トップと異例の会談　核戦争阻止と主張</h2>
-            <p class="text-base mb-4">トランプ米大統領は18日、パキスタンのムニール陸軍元帥とホワイトハウスで異例の会談を行った。トランプ氏は、自身がインドとパキスタンの対立を止め、核戦争を阻止したと主張し、ムニール氏の貢献に謝意を示した。両氏はイラン問題や貿易についても協議したという。</p>
-            <a href="https://jp.reuters.com/world/security/7CIHOAOULVOSLGANEL4FRAZGFU-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/security/7CIHOAOULVOSLGANEL4FRAZGFU-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 16:11)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">東京マーケット・サマリー（19日）</h2>
-            <p class="text-base mb-4">19日の東京市場は、中東情勢の緊迫化を背景にリスク回避ムードが広がった。株式市場では日経平均が4日ぶりに反落。為替市場ではドル円が145円前半で横ばい。一方、債券市場では安全資産として円債が買われ、長期金利は低下した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/SZQCEDGA5ZIBDC3XEFYI2VCO3Y-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/SZQCEDGA5ZIBDC3XEFYI2VCO3Y-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 16:05)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">東南アジア株式・中盤＝大半が下落</h2>
-            <p class="text-base mb-4">19日中盤の東南アジア株式市場は、大半が下落した。特にバンコク市場のSET指数は政局不安を嫌気して1%以上下落。ジャカルタ市場も、中銀が金利据え置きを発表したことを受け、1カ月ぶりの安値を付けた。地政学リスクの高まりが全体的に投資家心理を圧迫している。</p>
-            <a href="https://jp.reuters.com/markets/asia/I22ST4URPZIHRH7PRGR23R7A4M-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/asia/I22ST4URPZIHRH7PRGR23R7A4M-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 15:45)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">〔マーケットアイ〕金利：国債先物は続伸、長期金利1.41％　中東情勢緊迫化や国債発行計画修正案で</h2>
-            <p class="text-base mb-4">19日の円債市場では、国債先物が続伸し、長期金利は1.410%に低下した。中東情勢の緊迫化による質への逃避や、超長期債の発行減額を柱とする国債発行計画修正案の報道が買い材料となった。一部で増発が予想された5年債が見送られたことも好感された。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/HDKPDQ7Z5RPY7HXGRQOFF45LEU-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/HDKPDQ7Z5RPY7HXGRQOFF45LEU-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 15:41)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">午後3時のドルは145円前半で売買交錯、中東緊迫で様子見姿勢</h2>
-            <p class="text-base mb-4">19日午後3時のドル円相場は、145円前半で横ばいとなった。中東情勢の緊迫化を受け、市場は様子見ムードが強まった。米国の祝日も重なり、狭いレンジでの売買に終始。FRB議長会見に新たな材料が乏しかったことも、取引を手控えさせる要因となった。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/VHBRS4RJUFN4LMZPR7Y2IONV6E-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/VHBRS4RJUFN4LMZPR7Y2IONV6E-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 15:38)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">〔マーケットアイ〕株式：大引けの日経平均は4日ぶり反落、中東懸念くすぶる</h2>
-            <p class="text-base mb-4">19日の東京株式市場で日経平均株価は4日ぶりに反落し、396円安の3万8488円で取引を終えた。中東情勢の緊迫化が重しとなり、利益確定売りが優勢となった。米休場を控えて動意に乏しく、後場は小動きに終始し、この日の安値で引けた。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/GMTMV5CIZVMC3HQOUXV2LFELHA-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/GMTMV5CIZVMC3HQOUXV2LFELHA-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 15:37)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">経済・金融見通し、極めて不確実　スイス中銀が警告</h2>
-            <p class="text-base mb-4">スイス国立銀行は19日、2025年の金融安定報告で、経済・金融見通しは極めて不確実だと警告した。特に通商政策や地政学的な緊張をリスク要因として指摘。世界の公的債務水準の高さや、住宅不動産、社債などのバリュエーションの割高感も潜在的な負のショックを増幅させる恐れがあると述べた。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/CC7U2VWVM5IP7LDDXV53HG5WOA-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/CC7U2VWVM5IP7LDDXV53HG5WOA-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 15:06)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">〔マーケットアイ〕外為：午後3時のドルは145円前半、中東緊迫で様子見姿勢</h2>
-            <p class="text-base mb-4">19日午後3時のドル円は145円前半でほぼ横ばい。中東情勢の緊迫化を受け、市場は様子見ムードが強まった。FOMCなどのイベントを通過し、新たな材料に乏しい中、米国の祝日も重なり、狭いレンジでの取引となった。イスラエル・イラン情勢が今後の焦点とみられている。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/A6V6Y7WQUJPWTJJTYNGDMIFGNQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/A6V6Y7WQUJPWTJJTYNGDMIFGNQ-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 14:56)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">アジア通貨動向（19日）＝下落、中東情勢巡る懸念が重し</h2>
-            <p class="text-base mb-4">19日のアジア新興国通貨は、中東情勢への懸念からリスク回避の動きが強まり、総じて下落した。イスラエル・イラン紛争に米国が介入する可能性が意識され、マレーシアリンギや韓国ウォンなどが下落。投資家はフィリピンや台湾の中銀の政策決定にも注目している。</p>
-            <a href="https://jp.reuters.com/markets/asia/YDF5VVWWF5JYPGM6VT3F75V6UA-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/asia/YDF5VVWWF5JYPGM6VT3F75V6UA-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 14:31)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">焦点：ＦＲＢは慎重姿勢、関税リスク巡る市場の不安消えず</h2>
-            <p class="text-base mb-4">FRBは18日、金利を据え置き、利下げに慎重な姿勢を示した。トランプ政権の関税措置によるインフレ上昇リスクを警戒しており、今後の利下げペースは鈍化する可能性を示唆。投資家は地政学的緊張やインフレなど不透明要素が交錯する中、神経をとがらせている状況だ。</p>
-            <a href="https://jp.reuters.com/markets/japan/D7GN3BC3QJM7LFB2NFGD2EFI5E-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/D7GN3BC3QJM7LFB2NFGD2EFI5E-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 14:27)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">中国・香港株式市場・前場＝中国下落、中東情勢の緊張高まる　香港は大幅安</h2>
-            <p class="text-base mb-4">19日前場の中国・香港株式市場は、中東情勢の緊迫化を受けて下落した。投資家心理が後退し、幅広いセクターで売りが強まった。上海総合指数は0.33%安、香港ハンセン指数は1.29%安と大幅下落。テクノロジー株やヘルスケア株の下げが特に目立った。</p>
-            <a href="https://jp.reuters.com/markets/asia/5H2PIYVTWFMIXJQEBZDURHIDOI-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/asia/5H2PIYVTWFMIXJQEBZDURHIDOI-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 14:15)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ゲイツ氏出資のテラパワーが6.5億ドル調達、原子炉建設で来年承認か</h2>
-            <p class="text-base mb-4">ビル・ゲイツ氏が出資する原子力ベンチャーのテラパワーは、6億5000万ドルの資金調達を発表した。AIブームによる電力需要増を背景に原子力発電への関心が高まる中、来年には40億ドル規模のナトリウム原子炉建設で認可を取得できる見通しだとしている。</p>
-            <a href="https://jp.reuters.com/markets/commodities/M457P6UT2NKJ7MNNHCKJ72BPJM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/commodities/M457P6UT2NKJ7MNNHCKJ72BPJM-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 14:11)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">香港ドルの見通しは依然不透明、キャリートレードなどで＝金融管理局</h2>
-            <p class="text-base mb-4">香港金融管理局(HKMA)は19日、キャリートレードなどの影響で香港ドルと銀行間金利の見通しは依然不透明との認識を示した。米FRBが金利を据え置いたことを受けたコメントで、キャリートレードが続けば香港ドル相場がさらに下落する可能性に警戒感を示した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/S3WTDZJFHJL65J3JHHPYQSPFKU-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/S3WTDZJFHJL65J3JHHPYQSPFKU-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 14:05)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">インド株式市場・序盤＝横ばい、中東情勢と米ＦＲＢのタカ派姿勢で様子見</h2>
-            <p class="text-base mb-4">19日午前のインド株式市場は小動きで推移した。FRBのタカ派的なシグナルや中東情勢の緊迫化を受け、投資家が慎重姿勢を強めている。IT株指数が1%安となるなど、主要13業種中7業種が下落。国内機関投資家の買いが相場を下支えし、大幅な下落は防がれている。</p>
-            <a href="https://jp.reuters.com/markets/asia/ZWYHEEJX3ZIFLI7KBMFYEG3JMY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/asia/ZWYHEEJX3ZIFLI7KBMFYEG3JMY-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 14:00)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">上海外為市場＝人民元は1週間ぶり安値、中東情勢への懸念続く</h2>
-            <p class="text-base mb-4">19日の上海外国為替市場で、人民元は一時1週間ぶりの安値を付けた。中東紛争への懸念が続く中、他のアジア通貨と同様に軟調な展開となった。米中貿易の見通しが不透明な中、貿易加重ベースでの人民元安が輸出競争力を高める可能性があるとの見方も出ている。</p>
-            <a href="https://jp.reuters.com/markets/asia/G5TXHRJJQJJD7H5HHSKR4QNP3Q-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/asia/G5TXHRJJQJJD7H5HHSKR4QNP3Q-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 13:59)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">〔マーケットアイ〕株式：後場の日経平均は小動き、米休場を控え方向感欠く</h2>
-            <p class="text-base mb-4">19日後場の日経平均は3万8500円台半ばで小動きとなった。米市場が休場のため動意に乏しく、方向感を欠いた。前場は中東情勢の緊迫化などから利益確定売りに押され反落したが、下値では底堅さも見られ、売り一巡後は一進一退の展開が続いた。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/3H3UKN25PJKJ5O2DD3IVHBJWKQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/3H3UKN25PJKJ5O2DD3IVHBJWKQ-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 13:31)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＥＵ、金融統合の期限設定をと仏中銀総裁　「ＡＩ共同体」構想も</h2>
-            <p class="text-base mb-4">ECB理事のビルロワドガロー仏中銀総裁は、EUの金融統合を加速させるため、2028年1月1日といった期限を設定すべきとの考えを示した。また、AI分野で米国や中国に追いつくため、リソースを結集する「AI欧州共同体」の設立も提唱した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/XTXIJMRSMFM77NJLCYRCFUIOVI-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/XTXIJMRSMFM77NJLCYRCFUIOVI-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 13:18)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">アジア株式市場サマリー：中盤（19日）</h2>
-            <p class="text-base mb-4">19日午前のアジア株式市場は、中東の地政学リスクの高まりを受け、総じて軟調だった。ソウル市場は反落し、シドニー市場も3日続落。米FRBの利下げ慎重姿勢や商品相場の下落も重しとなった。一方、韓国の新政権の方針を受け、IT株は続伸した。</p>
-            <a href="https://jp.reuters.com/markets/asia/BFC4B246LNOAXKQFBS67MLMEHA-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/asia/BFC4B246LNOAXKQFBS67MLMEHA-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 13:15)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">韓国、北朝鮮の核攻撃受ければ米が攻撃へ＝情報機関トップ候補</h2>
-            <p class="text-base mb-4">韓国の情報機関トップ候補、李鍾ソク氏は19日、北朝鮮が韓国に核攻撃を仕掛けた場合、米国は核兵器で北朝鮮を攻撃するとの見方を示した。指名公聴会で、この仮定のシナリオは米韓の安全保障同盟に直接関係していると述べ、米国の確固たる対応への信頼を表明した。</p>
-            <a href="https://jp.reuters.com/world/us/EHOAWICPIVLDFLL3PZLXOGSDLQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/us/EHOAWICPIVLDFLL3PZLXOGSDLQ-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 13:09)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">〔マーケットアイ〕金利：5年債入札結果は「無難」、国債先物は堅調</h2>
-            <p class="text-base mb-4">19日に行われた5年利付国債の入札は「無難」な結果となり、相場への影響は限定的だった。国債先物は堅調に推移し、長期金利は低下。一方、国債発行計画修正案の報道を受け、超長期債は金利が上昇に転じるなど、年限ごとに異なる動きを見せた。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/LECHTTE4MRMWRE4C3MKSYB2WUM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/LECHTTE4MRMWRE4C3MKSYB2WUM-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 13:04)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">マツダ、米関税で国内販売強化　10都市を重点市場に選定</h2>
-            <p class="text-base mb-4">マツダは19日、国内販売網を再構築する方針を発表した。米国の関税問題で主力市場の先行きが不透明な中、国内販売を強化する。東京や大阪など10都市を重点市場とし、店舗投資を加速。年15万台まで落ち込んだ国内販売を早期に20万台へ回復させることを目指す。</p>
-            <a href="https://jp.reuters.com/business/autos/W7UZFL5RDNMYHDT72GWEKWGCPY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/business/autos/W7UZFL5RDNMYHDT72GWEKWGCPY-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 13:03)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">シドニー外為・債券市場＝豪ドル・ＮＺドル下落、中東情勢を懸念</h2>
-            <p class="text-base mb-4">19日のオセアニア外国為替市場で、豪ドルとNZドルは下落した。米国がイランを攻撃するとの懸念から投資家のリスク回避姿勢が強まったことが背景。オーストラリアの5月雇用統計は予想外の減少となったが、市場の反応は限定的で、中東情勢が主な変動要因となった。</p>
-            <a href="https://jp.reuters.com/markets/asia/4I36DZKSINMQFMW7G75FPG5EKQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/asia/4I36DZKSINMQFMW7G75FPG5EKQ-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 12:43)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＰＥ各社の売却待ち資産が1兆ドルに、Ｍ＆Ａ停滞＝ＰｗＣ</h2>
-            <p class="text-base mb-4">PwCの調査によると、プライベートエクイティ各社が抱える売却待ち資産が約1兆ドルに上ることが分かった。高金利や地政学リスクを背景にM&Aが停滞し、投資先企業の保有期間が長期化している。投資家からのリターン圧力で、今後数四半期以内にM&A活動は改善すると予想されている。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/VR7G4XWQDBIE3GF6IJNEHZR45M-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/VR7G4XWQDBIE3GF6IJNEHZR45M-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 12:43)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">〔マーケットアイ〕金利：国債先物は堅調、超長期債は金利上昇に転じる　国債発行計画修正案の報道で</h2>
-            <p class="text-base mb-4">19日後場の円債市場で、国債先物は堅調に推移した。一方、ロイターが報じた国債発行計画修正案の内容を受け、超長期債の利回りは上昇に転じた。20年、30年、40年債の減額幅が市場の一部期待に届かなかったことが背景にあるとみられる。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/JID3MZDNXFOVTEABWF22SPDJMQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/JID3MZDNXFOVTEABWF22SPDJMQ-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 12:38)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">米ウェイモ、ＮＹで7月にも自動運転試験を開始</h2>
-            <p class="text-base mb-4">グーグル傘下のウェイモは18日、ニューヨーク市で7月にも自動運転試験を開始すると発表した。実現すれば同市初となる。まずは運転席に乗員を乗せた形で試験を行い、将来的には完全自動運転タクシーサービスの提供を目指す。法律改正も求めているという。</p>
-            <a href="https://jp.reuters.com/economy/industry/KFEEXEWGQZLQPFYO2UXUAFB34A-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/economy/industry/KFEEXEWGQZLQPFYO2UXUAFB34A-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 12:35)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">米アップル、カスタムチップ設計で生成ＡＩ活用へ＝スルージ上級副社長</h2>
-            <p class="text-base mb-4">アップルのハードウェア技術担当、ジョニー・スルージ上級副社長が、カスタムチップ設計の加速に向けて生成AIの活用に強い関心を示していることが分かった。チップ設計に不可欠なEDA（電子設計自動化）ツールに生成AIを導入することで、生産性を大幅に向上できる可能性があると述べた。</p>
-            <a href="https://jp.reuters.com/economy/industry/KNATBHENNVM6BL62DV7WJMVDEQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/economy/industry/KNATBHENNVM6BL62DV7WJMVDEQ-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 12:23)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＵＳスチール買収、米政府「黄金株」でも経営の自由度と採算性確保＝日鉄ＣＥＯ</h2>
-            <p class="text-base mb-4">日本製鉄の橋本英二CEOは19日、USスチール買収完了を受け、米政府が「黄金株」を保有する形でも「経営の自由度と採算性は確保されている」と述べた。米政府との合意は満足いくものだとし、買収は日鉄とUSスチールの双方にメリットのあるウィンウィンの取引だと強調した。</p>
-            <a href="https://jp.reuters.com/economy/industry/LIS44GLCBVIZNM2NYBQS7GIFGQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/economy/industry/LIS44GLCBVIZNM2NYBQS7GIFGQ-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 12:23)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">豪5月就業者数、予想外の減少　失業率は横ばい</h2>
-            <p class="text-base mb-4">オーストラリア統計局が19日発表した5月の就業者数は前月比2500人減と、市場予想に反して減少した。しかし、フルタイム雇用は増加し、失業率は横ばいの4.1%を維持。労働市場の底堅さが示され、市場が織り込む7月の利下げ確率はほぼ変わらなかった。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/75DVTMKD3NPOJB4J7Z4PE3DMKA-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/75DVTMKD3NPOJB4J7Z4PE3DMKA-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 12:20)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">午前の日経平均は反落、中東情勢緊pok化など受け利益確定売り</h2>
-            <p class="text-base mb-4">19日前場の東京株式市場で日経平均は反落した。中東情勢の緊迫化や前日までの上昇を受け、利益確定売りが優勢となった。主力銘柄を中心に売られたが、一部セクターは買われ下値は底堅く、売り一巡後は一進一退の展開となった。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/FHKJRC2UVVPHTFHKR2XPVMRKVI-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/FHKJRC2UVVPHTFHKR2XPVMRKVI-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 12:12)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">日鉄、買収資金借り入れの悪影響を米事業拡大で相殺＝ムーディーズ</h2>
-            <p class="text-base mb-4">格付け会社ムーディーズは19日、日本製鉄によるUSスチール買収について、買収資金の借り入れは信用力にネガティブだが、関税で守られた米国市場での事業拡大という戦略的恩恵により相殺されるとの見方を示した。今後の焦点は投資ペースとコスト管理だとした。</p>
-            <a href="https://jp.reuters.com/business/5VPRTIPFQ5JG3ONEQOFIGFNNTM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/business/5VPRTIPFQ5JG3ONEQOFIGFNNTM-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 12:08)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">東京外為市場・午前＝ドル145円前半で上値限定的、材料一巡で方向感欠く</h2>
-            <p class="text-base mb-4">19日午前の東京外国為替市場でドル円は144円後半から145円前半で方向感を欠いた。中東情勢緊迫化の報道で一時ドル買いが強まったが、FOMCや日銀会合といった主要イベントを通過し材料が一巡したため、上値は限定的だった。米休場も重なり閑散相場となった。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/7GANNZQADNMKTFGVWQAAEWEXAM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/7GANNZQADNMKTFGVWQAAEWEXAM-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 12:03)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">〔マーケットアイ〕外為：午前のドル145円前半で上値限定的、材料一巡で方向感欠く</h2>
-            <p class="text-base mb-4">19日午前のドル円は144円後半から145円前半で方向感を欠いた。FOMCと日銀会合を終え材料が一巡した中、米国によるイラン攻撃の可能性が報じられたが、上値は限定的。野村証券の後藤氏は、事態収束期待で市場に底打ち感が出る可能性も指摘している。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/MNDZFJVYINOLXO3KXZ5K7ADHV4-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/MNDZFJVYINOLXO3KXZ5K7ADHV4-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 11:50)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">マレーシア、中国企業のエヌビディア半導体使用報道を調査</h2>
-            <p class="text-base mb-4">マレーシア貿易省は18日、同国内の中国企業が米エヌビディア製半導体を搭載したサーバーを使用しているとの報道について調査していると明らかにした。WSJ紙が報じたもので、国内法に違反していないか関係機関と共に確認中だとしている。</p>
-            <a href="https://jp.reuters.com/business/technology/4FLNT4HIARIL3AWYYKPCQCSITU-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/business/technology/4FLNT4HIARIL3AWYYKPCQCSITU-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 11:48)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">米ヒルトンとマリオット、アフリカ事業拡大計画発表　観光拡大に商機</h2>
-            <p class="text-base mb-4">米ホテル大手のヒルトンとマリオットは、アフリカでの事業拡大計画を発表した。アフリカ大陸の観光市場の急成長を商機と捉え、ヒルトンは運営施設を3倍超に、マリオットは2027年までに50軒のホテルを追加する計画。両社とも新たな国への進出も予定している。</p>
-            <a href="https://jp.reuters.com/business/5WQ4CZRXAVOQDEHF5G5IKDFBQQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/business/5WQ4CZRXAVOQDEHF5G5IKDFBQQ-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 11:46)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">大西洋横断航空運賃、パンデミック前水準に下落　欧州からの訪米減少</h2>
-            <p class="text-base mb-4">大西洋横断路線の航空運賃がコロナ禍前の水準まで下落している。米国の国境管理やトランプ大統領の政策への懸念から、欧州からの訪米旅行者が減少していることが背景。5月の西欧からの到着者数は4.4%減となり、この傾向は今後も続く可能性がある。</p>
-            <a href="https://jp.reuters.com/world/us/PRZT36AWRFP7PB4IRUEBKMK2GM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/us/PRZT36AWRFP7PB4IRUEBKMK2GM-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 11:46)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">米当局、数日内のイラン攻撃の可能性に備え＝ブルームバーグ</h2>
-            <p class="text-base mb-4">ブルームバーグは18日、複数の関係筋の話として、米当局が数日以内にイランを攻撃する可能性に備えていると報じた。状況は流動的で変化する可能性があるとしつつ、一部の関係筋は週末の攻撃の可能性を指摘したという。中東情勢のさらなる緊迫化が懸念される。</p>
-            <a href="https://jp.reuters.com/world/us/KE6ZYIM3GZN2VII6O4ZHMF3TTE-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/us/KE6ZYIM3GZN2VII6O4ZHMF3TTE-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 11:45)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">西側撤退後のロシア市場の空白、ブラジル企業にも穴埋め期待＝経済発展次官</h2>
-            <p class="text-base mb-4">ロシアのイリチェフ経済発展次官は、西側企業撤退後のロシア市場で、ブラジル企業が中国企業を補完する役割を果たせることに期待を示した。消費財や工業製品の分野で参入の機会があると提案。ロシアはウクライナ侵攻後、BRICS諸国との協力関係を強化している。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/2UJQF5HADFKGFMK67JQKTLQ2JQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/2UJQF5HADFKGFMK67JQKTLQ2JQ-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 11:40)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">日鉄株が乱高下、ＵＳスチール買収で増資に言及し思惑交錯</h2>
-            <p class="text-base mb-4">19日の東京市場で日本製鉄の株価が乱高下した。USスチール買収に関する会見で増資の可能性に言及したことが伝わると一時売られたが、「希薄化が起こるような増資は考えていない」との意向が示されると買いが優勢になった。株主に配慮する姿勢が安心感につながった模様。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/ZDVUPXZ4M5KB7AZZEW7HSTUBOM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/ZDVUPXZ4M5KB7AZZEW7HSTUBOM-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 11:35)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ホルムズ海峡通航は許可制に＝イラン元経済財務相</h2>
-            <p class="text-base mb-4">イランのハンドゥジ元経済財務相は17日、同国の許可を得た船舶以外のホルムズ海峡通航を100日間禁止すべきだと主張した。政府方針かは不明だが、西側へのけん制とみられる。世界の石油消費量の約2割が通過する同海峡の封鎖は、これまでもイランが示唆してきたカードだ。</p>
-            <a href="https://jp.reuters.com/markets/commodities/LUFLZGKTUBPNBPDG54HSZYRMPY-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/commodities/LUFLZGKTUBPNBPDG54HSZYRMPY-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 11:15)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">〔マーケットアイ〕金利：前場の国債先物は続伸、中東緊迫化で　長期金利1.435％に低下</h2>
-            <p class="text-base mb-4">19日前場の国債先物は続伸し、長期金利は1.435%に低下した。中東情勢の緊迫化による安全資産需要や、ハト派的と受け止められた日銀総裁会見後のポジション解消の動きが背景にある。米当局が数日以内にイランを攻撃する可能性との報道も材料視された。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/UEH4KHNDFRPOJPWUHK24TY45FM-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/UEH4KHNDFRPOJPWUHK24TY45FM-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 11:09)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">プーチン氏、ロシアがＮＡＴＯ攻撃を計画という考え「ナンセンス」</h2>
-            <p class="text-base mb-4">ロシアのプーチン大統領は19日、ロシアがNATOへの攻撃を計画しているとの見方を「ナンセンス」と一蹴した。これは西側政治家が納税者をだまし防衛費を増額させるために広めたものだと主張。ロシアは自給自足できるため、NATOの再軍備計画は脅威ではないと述べた。</p>
-            <a href="https://jp.reuters.com/world/ukraine/IMOIPZ3EMFIXVAGMRLRSP3BLUQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/ukraine/IMOIPZ3EMFIXVAGMRLRSP3BLUQ-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 10:55)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ユーロ圏の銀行、不良債権増加を警戒すべき＝ＥＣＢ監督理事会</h2>
-            <p class="text-base mb-4">ECB監督理事会のドネリー氏は18日、ユーロ圏の銀行は不良債権の増加に警戒すべきだと述べた。特に小規模事業者や消費者向け融資、非一等地の商業用不動産向け融資で注意が必要だと指摘。地政学的緊張や貿易摩擦が経済の下振れリスクを高めていると警告した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/2MTWB4EKB5LATEXN4S34HK4RFI-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/2MTWB4EKB5LATEXN4S34HK4RFI-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 10:48)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">原油先物は反落、米の対イラン軍事作戦参加巡り様子見強まる</h2>
-            <p class="text-base mb-4">アジア時間19日序盤の原油先物は反落した。トランプ米大統領がイスラエル・イラン紛争への関与について相反するシグナルを送ったため、投資家は様子見姿勢を強めた。市場は、米国が攻撃に参加すれば価格が上昇し、和平交渉なら下落すると見て、次の展開を見守っている。</p>
-            <a href="https://jp.reuters.com/markets/commodities/W5SPNH5CGBLODPPCQWN4XA3QKE-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/commodities/W5SPNH5CGBLODPPCQWN4XA3QKE-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 10:31)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ホットストック：セガサミーＨＤが急伸、みずほ証券が目標株価引き上げ</h2>
-            <p class="text-base mb-4">19日の東京市場でセガサミーホールディングス株が急伸し、一時11%超高となった。みずほ証券が目標株価を3700円から3900円に引き上げたことが手掛かり。来期のゲーム新作への期待が高く、下期から株価が強含む可能性があるとの見方が示された。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/LR5FL3VEN5PNBLMT7P2GV2X6ZE-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/LR5FL3VEN5PNBLMT7P2GV2X6ZE-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 10:25)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">〔マーケットアイ〕外為：ドル一時145円台、米が数日以内にイラン攻撃の可能性と報道</h2>
-            <p class="text-base mb-4">19日の外国為替市場でドル円は一時145円台に乗せた。米当局が数日以内にイランを攻撃する可能性に備えているとのブルームバーグ報道が材料視された。中東情勢の緊迫化はリスク回避の円買い要因ともなり、今後の展開が注目される。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/G6Y2I22VCNKOLDUGODCOBSNT4U-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/G6Y2I22VCNKOLDUGODCOBSNT4U-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 10:09)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">6月ロイター企業調査：消費減税、6割が「すべき」も財源は「国債以外で」が多数</h2>
-            <p class="text-base mb-4">6月のロイター企業調査で、企業の約6割が消費減税を「すべき」と回答した。しかし、その財源については国債発行に頼るべきではないとの意見が多数を占めた。景気浮揚策としての減税は望ましいものの、財政悪化を懸念する声が強く、実現へのジレンマが浮き彫りになった。</p>
-            <a href="https://jp.reuters.com/markets/treasury/MJZLYAIANVKCJHE4WHRQWHMPMQ-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/treasury/MJZLYAIANVKCJHE4WHRQWHMPMQ-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 10:09)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">6月ロイター企業調査：トランプ関税影響、7割「想定通り」 先読めず依然見極め姿勢</h2>
-            <p class="text-base mb-4">6月のロイター企業調査で、米国関税政策の業績への影響について、約7割の企業が「ほぼ想定通り」と回答した。しかし、多くは先行き不透明なためであり、状況を見極める段階にある。事態悪化への警戒感もくすぶっており、日本企業の慎重な姿勢が浮き彫りとなった。</p>
-            <a href="https://jp.reuters.com/markets/japan/FALOCHI43ZLQFKPRMXOTWI6A7Y-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/FALOCHI43ZLQFKPRMXOTWI6A7Y-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 10:07)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">インフレへの関税影響、今後数カ月で顕在化へ　ＦＲＢ議長が見解</h2>
-            <p class="text-base mb-4">FRBのパウエル議長は18日、トランプ大統領の関税措置によるインフレへの影響が夏にかけて上昇するとの見通しを示した。最終的には消費者が負担することになると指摘し、その影響は今後数カ月で顕在化するだろうと述べた。この発言は、FRBの利下げ判断に影響を与える可能性がある。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/N7VCJL3FXNPW5EF4G7PRLAPOPE-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/N7VCJL3FXNPW5EF4G7PRLAPOPE-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 09:59)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ロ・中国の関係悪化目指す米の取り組みでＥＵが被害＝伊中銀総裁</h2>
-            <p class="text-base mb-4">ECB理事のパネッタ伊中銀総裁は18日、米国のEUに対する「敵対的な」通商スタンスは、中国とロシアの関係を弱めることを目指す米国の取り組みの結果だとの見解を示した。米国は中ロの同盟を脅威とみており、その目標達成のために欧州との歴史的関係を犠牲にしていると主張した。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/GVS7PJ4PE5JYVB66HZJGTY5534-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/GVS7PJ4PE5JYVB66HZJGTY5534-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 09:58)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">トランプ氏、対イラン軍事作戦未定　会談の可能性も示唆</h2>
-            <p class="text-base mb-4">トランプ大統領は18日、イランへの対応は未定だとし、軍事作戦への参加について「やるかもしれないし、やらないかもしれない」と述べた。一方で、イラン当局者との会談の可能性にも言及。イスラエルとイランの攻撃の応酬が続く中、米国の動向に注目が集まっている。</p>
-            <a href="https://jp.reuters.com/world/security/SNZSARUO45IAHB2CMRZCYD5NEE-2025-06-18/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/security/SNZSARUO45IAHB2CMRZCYD5NEE-2025-06-18/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 09:53)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＦＲＢ金利据え置き：識者はこうみる</h2>
-            <p class="text-base mb-4">FRBが18日に金利据え置きを決定したことについて、識者の見方は分かれた。利下げに慎重でインフレへの警戒を強めたとのタカ派的な見方がある一方、中立的で9月の利下げ予想は不変との見方も出ている。関税や中東情勢など不確実要素が多く、FRBの今後の判断が注目される。</p>
-            <a href="https://jp.reuters.com/economy/federal-reserve-board/MYADNN3SIZNIZEN6OBCCQNGPQM-2025-06-18/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/economy/federal-reserve-board/MYADNN3SIZNIZEN6OBCCQNGPQM-2025-06-18/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 09:44)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">日鉄によるＵＳスチールの買収完了、米政府が黄金株保有</h2>
-            <p class="text-base mb-4">日本製鉄によるUSスチールの買収が18日に完了した。買収額は約2兆円。経済安保を懸念する米政府が、重要決定に関与できる「黄金株」を保有する。日鉄は年間粗鋼生産能力が8600万トンに達し、グローバル目標達成に近付く。19日には日鉄の橋本会長らが会見を開く。</p>
-            <a href="https://jp.reuters.com/markets/commodities/TF2D32DD5RI6DEREAOLVS3YRME-2025-06-18/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/commodities/TF2D32DD5RI6DEREAOLVS3YRME-2025-06-18/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 09:38)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">米ＦＯＭＣこうみる：利下げに慎重、インフレへの警戒強める＝三井住友銀　宇野氏</h2>
-            <p class="text-base mb-4">三井住友銀行の宇野大介氏は、今回のFOMCについて、利下げに慎重でインフレへの警戒を強めたと分析。年内2回の利下げ見通しは建前で、本音は利下げが難しいとみているのではないかと指摘した。関税や中東情勢を背景に、市場の反応は限定的だったとしている。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/NWXDFUHGWZM6BKEALNVVAM5OPA-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/NWXDFUHGWZM6BKEALNVVAM5OPA-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 09:35)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＥＵ加盟国政府、防衛産業向け15億ユーロ投資計画で合意</h2>
-            <p class="text-base mb-4">EU加盟国政府は、域内防衛産業向けに15億ユーロを投資する「欧州防衛産業プログラム（EDIP）」で合意した。ロシアのウクライナ侵攻を受けた再軍備の一環。欧州製品の優先購入を巡り意見が対立したが、一部例外を認める形で折り合った。今後、欧州議会で審議される。</p>
-            <a href="https://jp.reuters.com/world/europe/R3LEALIBFBLJTISE2WWPG5L3KI-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/europe/R3LEALIBFBLJTISE2WWPG5L3KI-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 09:31)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">米最高裁、未成年トランスジェンダーの性適合治療禁止は合憲と判断</h2>
-            <p class="text-base mb-4">米連邦最高裁は18日、テネシー州の未成年トランスジェンダーへの性適合治療を禁止する法律を合憲と判断した。保守派6人が賛成し、治療のリスクと効用に関する議論が続いているという州の判断を支持した。今後、保守的な州で同様の権利制限の動きが加速する可能性がある。</p>
-            <a href="https://jp.reuters.com/world/us/TL4ZLMODEFK6NAOBEH4OVV6NUA-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/world/us/TL4ZLMODEFK6NAOBEH4OVV6NUA-2025-06-19/</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 09:30)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ブレントの地政学リスクプレミアムは1バレル約10ドル＝ゴールドマン</h2>
-            <p class="text-base mb-4">ゴールドマン・サックスは18日、北海ブレント原油先物に1バレル当たり約10ドルの地政学リスクプレミアムが織り込まれているとの見方を示した。イランとイスラエルの紛争による中東からの供給懸念が背景。供給に混乱が生じなければ第4四半期に60ドル前後まで下落すると予測している。</p>
-            <a href="https://jp.reuters.com/markets/commodities/MJ5JR3YDIZKSBLL5CLD24UKW2U-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/commodities/MJ5JR3YDIZKSBLL5CLD24UKW2U-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 09:28)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">米ＦＯＭＣこうみる：全体像はややタカ派、9月利下げ予想は不変＝りそなＨＤ　井口氏</h2>
-            <p class="text-base mb-4">りそなHDの井口慶一氏は、今回のFOMCを「ややタカ派」と評価。パウエル議長がインフレ警戒をにじませたが、9月の利下げ予想は変更しないという。中東情勢が悪化しない限り、7-9月のデータ確認後、日銀の10月利上げと合わせて夏の円高局面を予想している。</p>
-            <a href="https://jp.reuters.com/markets/japan/funds/4ABG775JPZK57HAKBBS2ZAWH5A-2025-06-19/" target="_blank" class="news-url hover:underline">https://jp.reuters.com/markets/japan/funds/4ABG775JPZK57HAKBBS2ZAWH5A-2025-06-19/</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 23:29)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">パウエル議長は2.5ポイント利下げをすべきだ－トランプ氏が再び主張</h2>
-            <p class="text-base mb-4">トランプ米大統領は19日、FRBのパウエル議長に対し、政策金利を2.5%ポイント引き下げるべきだと再び主張した。自身のSNSで、パウエル議長が国に巨額のコストを強いていると批判。欧州が10回利下げしたのに対し、米国が一度もしていないことに不満を示した。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3WQIDWRGG000" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3WQIDWRGG000</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 21:38)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">英中銀、政策金利を4.25％で据え置き－６対３のハト派寄り決定</h2>
-            <p class="text-base mb-4">イングランド銀行は19日、政策金利を4.25%で据え置いた。金融政策委員会は6対3の賛成多数で、3人が利下げを主張し、市場予想よりハト派的な内容となった。労働市場の軟化を指摘し、今後の利下げは「段階的かつ慎重に」行うとのガイダンスを維持した。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3O0IT0G1KW00" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3O0IT0G1KW00</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 04:21)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">カナダ政府、米国の鉄鋼・アルミへの関税引き上げへ－交渉不調なら</h2>
-            <p class="text-base mb-4">カナダ政府は19日、米国との貿易交渉が行き詰まった場合、米国の鉄鋼・アルミ製品に課している対抗関税を引き上げる可能性を示した。7月21日付で、交渉の進展に見合った水準に関税を調整すると発表。米国は現在50%の関税を課しており、交渉の行方が注目される。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY48WJDWRGG000" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY48WJDWRGG000</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 01:23)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">欧州中銀３行が24時間内に利下げ、トランプ関税で政策対応に難しさ</h2>
-            <p class="text-base mb-4">過去24時間でスイス、スウェーデン、ノルウェーの欧州3中銀が相次いで利下げを発表した。トランプ米大統領の予測不能な通商政策がもたらす影響に対し、金融政策当局の難しい対応が浮き彫りになった形だ。インフレ懸念や地政学リスクの中、各国で金融政策の判断が分かれている。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3UITT0G1KW00" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3UITT0G1KW00</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 00:30)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">米自動車関税、消費者の負担は25万円余り増加－コンサルティング会社</h2>
-            <p class="text-base mb-4">コンサルティング会社アリックスパートナーズは、トランプ米政権の自動車関税により、消費者の負担が1台あたり約25万6500円増加するとの試算を発表した。自動車メーカーがコストの80%を価格転嫁すると予想しており、これにより米国の販売台数が3年間で約100万台減少する可能性も指摘した。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3V31DWLU6800" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3V31DWLU6800</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 01:29)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＩＭＦ、欧州経済停滞のリスク警告－貿易摩擦や需要低迷が要因に</h2>
-            <p class="text-base mb-4">IMFは19日、欧州経済が停滞に陥るリスクがあると警告した。貿易摩擦や需要低迷が景気の勢いを削いでおり、リスクは下方に偏っていると指摘。生産性回復のため、EU単一市場の深化を「断固として推進」するよう求め、規制統一や資本市場改革の必要性を訴えた。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3XOCDWLU6800" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3XOCDWLU6800</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-20 02:18)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">【欧州市況】中東情勢懸念続き、長期債利回りが上昇－株は下落</h2>
-            <p class="text-base mb-4">19日の欧州市場は、中東情勢への懸念からリスク回避の動きが続き、債券利回りは上昇し、株式は下落した。インフレリスクへの警戒からイールドカーブがベア・スティープ化し、各国債のスプレッドが拡大。ストックス欧州600指数は3営業日連続で下落した。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY43J9T0AFB400" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY43J9T0AFB400</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 19:20)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">グーグルへの巨額制裁金は正当、ＥＵ司法裁法務官が欧州委の判断支持</h2>
-            <p class="text-base mb-4">EU司法裁判所の法務官は、EUがグーグルに対し、OS「アンドロイド」の市場支配力乱用で科した41億ユーロの制裁金は正当だとの見解を示した。グーグルの主張は法的論拠に乏しいと指摘。法務官の意見に拘束力はないが、最終判決で参考にされることが多い。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3GRZT0AFB400" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3GRZT0AFB400</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 17:42)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">全銀協会長、国債の将来的な安定消化に懸念と警鐘－財政赤字拡大なら</h2>
-            <p class="text-base mb-4">全国銀行協会の半沢淳一会長は19日、日本の財政赤字が拡大し続ければ、将来的に国債の安定消化が困難になる可能性があると警鐘を鳴らした。足元の超長期金利上昇に触れ、財政規律の維持や保有者層の多様化など、幅広い議論が必要だとの認識を示した。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3BTQDWRGG000" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3BTQDWRGG000</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 21:33)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">トルコ中銀、政策金利を46％に据え置き－インフレ抑制への姿勢明確に</h2>
-            <p class="text-base mb-4">トルコ中央銀行は19日、政策金利を46%に据え置いた。地政学的リスクが高まる中、インフレ抑制への姿勢を明確にした形だ。同国のインフレ率は5月に減速しており、企業からは利下げを求める声も出ていたが、エコノミストの予想通りの決定となった。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3O0XDWX2PS00" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3O0XDWX2PS00</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 18:56)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＥＣＢ、次の動きは緩和方向の可能性高い－フランス中銀総裁</h2>
-            <p class="text-base mb-4">ECB政策委員会メンバーのビルロワドガロー仏中銀総裁は、ECBの次の政策変更は利下げになる可能性が高いとの見方を示した。ただし、中東情勢などの大きな外的ショックがないことが前提。エネルギー価格の動向を注視し、機敏な対応を維持する必要性を強調した。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3IISDWX2PS00" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3IISDWX2PS00</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 18:00)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">中東危機の長期化、スタグフレーション招く恐れ－ＥＣＢレーン氏</h2>
-            <p class="text-base mb-4">ECB政策委員会のレーン・フィンランド中銀総裁は19日、中東危機の長期化はユーロ圏にスタグフレーション（景気停滞下のインフレ）を引き起こす恐れがあると警告した。経済成長の鈍化とインフレ加速が同時に起こる状況を指摘し、金融政策の警戒と柔軟性の必要性を訴えた。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3FUZDWX2PS00" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3FUZDWX2PS00</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 17:50)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">台湾中銀、政策金利を２％に据え置き－関税措置や通貨高を考慮</h2>
-            <p class="text-base mb-4">台湾の中央銀行は19日、政策金利を5四半期連続で2%に据え置いた。米国の関税措置が経済に与える影響や、インフレ、台湾ドル高を総合的に考慮した判断。エコノミスト調査では、大半が据え置きを予想していた。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3HC4DWX2PS00" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3HC4DWX2PS00</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 17:48)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">ＥＣＢラガルド総裁、ウクライナと欧州の経済結びつき強化呼びかけ</h2>
-            <p class="text-base mb-4">ECBのラガルド総裁は19日、キーウを訪問し、欧州とウクライナの経済的な結びつきを強化するよう呼びかけた。地域内の貿易拡大が、世界的な分断による損失を補う一助になると指摘。地政学リスクが高まる中、地域統合が回復と持続的な繁栄への道筋を示すと強調した。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3FA5T1UM0W00" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY3FA5T1UM0W00</a>
-        </div>
-
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 13:55)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">パウエル議長、物価への関税の影響顕在化を予想－金利の軌道不確実も</h2>
-            <p class="text-base mb-4">FRBのパウエル議長は18日、トランプ政権の関税の影響が今後、物価上昇という形で顕在化するとの見通しを示した。金利の先行きは不確実としながらも、関税の影響が夏には一層明らかになると指摘。FRBは利下げに慎重な姿勢を崩しておらず、今後のデータを見極める構えだ。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY2SU2DWX2PS00" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY2SU2DWX2PS00</a>
-        </div>
-        
-        <!-- Article Card -->
-        <div class="news-card rounded-lg p-6 shadow-md">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-19 14:34)</p>
-            <h2 class="text-xl font-bold mb-3 news-title">アマゾンが一部社員に「転居か退職か」通告、静かな人員削減の懸念</h2>
-            <p class="text-base mb-4">米アマゾンが一部のコーポレート部門社員に対し、主要拠点への転居を指示していることが分かった。応じない場合は自主退職を促されるケースもあり、事実上の人員削減ではないかとの懸念が社内で広がっている。同社は業務効率化のためとしているが、従業員に動揺が走っている。</p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-19/SY2MECT0G1KW00" target="_blank" class="news-url hover:underline">https://www.bloomberg.co.jp/news/articles/2025-06-19/SY2MECT0G1KW00</a>
+        <!-- News Card: (2025-06-23 17:51) 中国・香港株式市場・大引け＝香港続伸、本土投資資金が流入　中国も上昇 -->
+        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
+            <p class="text-sm text-gray-400 mb-2">(2025-06-23 17:51)</p>
+            <h2 class="text-xl font-bold news-title mb-4">中国・香港株式市場・大引け＝香港続伸、本土投資資金が流入　中国も上昇</h2>
+            <p class="text-gray-300 leading-relaxed">
+                この記事の本文は取得できませんでした。
+            </p>
+            <a href="https://jp.reuters.com/markets/asia/NIVICDNWX5LPDEH3HFPNFF6ADM-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
+                https://jp.reuters.com/markets/asia/NIVICDNWX5LPDEH3HFPNFF6ADM-2025-06-23/
+            </a>
         </div>
 
     </div>
 
 </body>
 </html>
+
