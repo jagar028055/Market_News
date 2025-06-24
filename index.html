@@ -3,205 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ニュースダイジェスト</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>マーケットニュースサマリー</title>
     <style>
-        /* カスタムダークモードカラー */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
         body {
             background-color: #121212;
             color: #e0e0e0;
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 1rem;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            border-bottom: 2px solid #bb86fc;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
         }
         .news-card {
             background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out;
         }
-        .news-title {
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        .news-card .time {
+            font-size: 0.9em;
+            color: #a0a0a0;
+            margin-bottom: 0.5rem;
+        }
+        .news-card .title {
+            font-size: 1.25em;
+            font-weight: 700;
             color: #bb86fc;
+            margin: 0.5rem 0 1rem 0;
         }
-        .news-link {
+        .news-card .summary {
+            font-size: 1em;
+            margin-bottom: 1rem;
+        }
+        .news-card .url {
+            font-size: 0.9em;
+            word-wrap: break-word;
+        }
+        .news-card .url a {
             color: #03dac6;
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
-        .news-link:hover {
+        .news-card .url a:hover {
             color: #018786;
+            text-decoration: underline;
+        }
+        .source-header {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #f2f2f2;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            padding-left: 10px;
+            border-left: 4px solid #03dac6;
         }
     </style>
 </head>
-<body class="font-sans">
+<body>
+    <div class="container">
+        <h1>マーケットニュースサマリー</h1>
 
-    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
-        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-100">ニュースダイジェスト</h1>
+        <h2 class="source-header">Reuters ニュース</h2>
 
-        <!-- News Card: (2025-06-24 06:53) 米国務長官、中国にイランへの働きかけ要請　ホルムズ海峡封鎖阻止で -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:53)</p>
-            <h2 class="text-xl font-bold news-title mb-4">米国務長官、中国にイランへの働きかけ要請　ホルムズ海峡封鎖阻止で</h2>
-            <p class="text-gray-300 leading-relaxed">
-                ルビオ米国務長官は22日、イランがホルムズ海峡を封鎖しないよう中国に働きかけを要請した。米国によるイラン核施設攻撃を受けた措置。ルビオ氏は、海峡封鎖は大規模なエスカレーションとなり、米国や他国による対応を正当化するとの考えを示した。中国は同海峡の石油輸送に大きく依存している。
-            </p>
-            <a href="https://jp.reuters.com/world/security/MUARAPVVIFNIND2N3XUVV7V2SY-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/world/security/MUARAPVVIFNIND2N3XUVV7V2SY-2025-06-23/
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 06:53</p>
+            <h3 class="title">米国株式市場＝続伸、Ｓ＆Ｐ最高値に迫る　中東の緊張緩和で</h3>
+            <p class="summary">イスラエルとイランの停戦合意を投資家が歓迎し、米国株式市場は続伸。主要3指数が1%超高となり、S&P500は終値での最高値に迫った。中東情勢の緊張緩和が市場の強気心理を後押ししたが、原油価格は供給懸念の後退で下落した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/us/S2W2WG7YZRNAFANKJ53QKEZJHE-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 06:45) 中南米金融市場＝株式下落、中東情勢緊迫受け　通貨は横ばい -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:45)</p>
-            <h2 class="text-xl font-bold news-title mb-4">中南米金融市場＝株式下落、中東情勢緊迫受け　通貨は横ばい</h2>
-            <p class="text-gray-300 leading-relaxed">
-                23日の中南米金融市場では、米国による核施設攻撃へのイランの報復を受け、株式が下落した。MSCI中南米株価指数は0.6%安、特にアルゼンチンのメルバル指数は4.3%下落し2カ月超ぶりの安値を記録した。一方、通貨はドルの下落などを背景に横ばいで推移し、中南米通貨指数はほぼ変わらずだった。
-            </p>
-            <a href="https://jp.reuters.com/markets/japan/funds/7DFN3EE7AVOFDKUKXYC5YN6ECE-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/markets/japan/funds/7DFN3EE7AVOFDKUKXYC5YN6ECE-2025-06-23/
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 06:44</p>
+            <h3 class="title">ＮＹ市場サマリー（24日）Ｓ＆Ｐ最高値に迫る、ドル下落 ・利回り低下</h3>
+            <p class="summary">24日のNY市場は、中東の停戦合意を受けリスクセンチメントが改善。株価は続伸しS&Pが最高値に迫り、安全資産のドルは下落。国債利回りも低下した。原油価格の下落を受け、ユーロは2021年以来の高値をつけ、金先物は反落した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/commodities/GPTE4DZ7WBJCRCJL4FBGZZVGHI-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 06:44) ＮＹ市場サマリー（23日）ドル下落、株上昇・利回り低下 -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:44)</p>
-            <h2 class="text-xl font-bold news-title mb-4">ＮＹ市場サマリー（23日）ドル下落、株上昇・利回り低下</h2>
-            <p class="text-gray-300 leading-relaxed">
-                23日のNY市場では、FRBボウマン副議長の利下げ支持発言や、イランの報復が限定的との見方からドルが下落。株価は上昇し、テスラはロボタクシー始動を好感され8.2%急伸した。国債利回りも低下した。一方、原油先物はイランがホルムズ海峡の通航を妨害しなかったため大幅下落した。
-            </p>
-            <a href="https://jp.reuters.com/markets/commodities/F4XRIDZ7YNIPTPM3AC5ACXIAAQ-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/markets/commodities/F4XRIDZ7YNIPTPM3AC5ACXIAAQ-2025-06-23/
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 06:42</p>
+            <h3 class="title">中南米金融市場＝通貨・株式上昇、イスラエル・イラン停戦で安心感</h3>
+            <p class="summary">24日の中南米金融市場は、トランプ米大統領が発表したイスラエルとイランの停戦合意を受けて安心感が広がり、通貨と株式が上昇。リスクオンの動きからドルが下落し、MSCI中南米通貨指数は0.4%高、株価指数は1.7%高となった。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/FNBKLVKETVPLTAAISBILWCEMU4-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 06:31) 米国株式市場＝上昇、ＦＲＢ当局者の利下げ発言を好感　テスラ急伸 -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:31)</p>
-            <h2 class="text-xl font-bold news-title mb-4">米国株式市場＝上昇、ＦＲＢ当局者の利下げ発言を好感　テスラ急伸</h2>
-            <p class="text-gray-300 leading-relaxed">
-                23日の米国株式市場は、FRBのボウマン副議長による利下げ支持発言が好感され上昇した。この発言は中東情勢の不透明感を相殺し、主要3指数が軒並み上昇。特にテスラは、テキサス州でのロボタクシーサービス開始を受け8.2%急伸した。S&P500ではエネルギーセクターのみが下落した。
-            </p>
-            <a href="https://jp.reuters.com/markets/us/76VROEVDARPUJPLBUSLOVCFKJY-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/markets/us/76VROEVDARPUJPLBUSLOVCFKJY-2025-06-23/
-            </a>
-        </div>
-        
-        <!-- News Card: (2025-06-24 06:25) スターバックス株、時間外取引で上昇－中国事業売却検討の報道 -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:25)</p>
-            <h2 class="text-xl font-bold news-title mb-4">スターバックス株、時間外取引で上昇－中国事業売却検討の報道</h2>
-            <p class="text-gray-300 leading-relaxed">
-                23日、米スターバックスが中国事業の全面売却を検討していると財新が報じた。これを受け、同社株は時間外取引で1.8%上昇した。報道によると、スターバックスはヒルハウス・キャピタルなど十数の買い手候補と予備的な協議を行ったという。同社からの正式なコメントはまだ得られていない。
-            </p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-23/SYBUR5DWLU6800" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://www.bloomberg.co.jp/news/articles/2025-06-23/SYBUR5DWLU6800
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 06:07</p>
+            <h3 class="title">ＮＹ外為市場＝ドル下落、中東情勢を楽観　ユーロは21年以来の高値</h3>
+            <p class="summary">24日のNY外為市場は、イランとイスラエルの停戦合意発表による中東情勢の楽観ムードからドルが下落。リスクセンチメントが改善し、原油価格の下落を受けて石油輸入に依存するユーロや円は上昇。ユーロは対ドルで2021年10月以来の高値を記録した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/us/HK4HM7BYRBJCVPWZDCSVT2I62U-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 06:20) 米下院議長、対イラン軍事制限法案の採決拒否　米軍基地への攻撃始まる中 -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:20)</p>
-            <h2 class="text-xl font-bold news-title mb-4">米下院議長、対イラン軍事制限法案の採決拒否　米軍基地への攻撃始まる中</h2>
-            <p class="text-gray-300 leading-relaxed">
-                ジョンソン米下院議長は23日、イランによるカタールの米軍基地へのミサイル攻撃が始まる中、トランプ大統領の対イラン軍事力行使を抑制する法案の採決を拒否した。同議長は「今は戦争権限決議案を採決するのに適切な時期ではない」と述べた。法案は共和党と民主党の一部議員から提出されていた。
-            </p>
-            <a href="https://jp.reuters.com/world/us/4JNPULOOJFIMFJ7NVBQE24XHZM-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/world/us/4JNPULOOJFIMFJ7NVBQE24XHZM-2025-06-23/
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 06:06</p>
+            <h3 class="title">米金融・債券市場＝利回り低下、米消費者信頼感悪化で利下げ観測高まる</h3>
+            <p class="summary">24日の米債券市場では国債利回りが低下。6月の消費者信頼感指数の予想外の悪化と、イスラエル・イラン停戦合意による原油価格下落が背景。FRBによる利下げ観測が高まり、2年債と10年債の利回りは7週間ぶりの低水準をつけた。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/5UUIPT4J3RP3FGOOS73PT3CPBI-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 06:18) 米・イラン対立激化懸念高まる、トランプ氏支持率低下＝ロイター／イプソス調査 -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:18)</p>
-            <h2 class="text-xl font-bold news-title mb-4">米・イラン対立激化懸念高まる、トランプ氏支持率低下＝ロイター／イプソス調査</h2>
-            <p class="text-gray-300 leading-relaxed">
-                ロイター／イプソスの世論調査で、米国のイラン核施設攻撃後、米国民の79%がイランによる報復を懸念していることが判明した。調査はイランの報復攻撃前に締め切られた。空爆継続の支持は32%にとどまり、49%が反対。トランプ大統領の支持率は41%に低下し、2期目就任以降で最低となった。
-            </p>
-            <a href="https://jp.reuters.com/world/us/LUS24FZBTZODZFAQDXIYVL66FQ-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/world/us/LUS24FZBTZODZFAQDXIYVL66FQ-2025-06-23/
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 06:04</p>
+            <h3 class="title">イラン核施設攻撃「中核部分破壊されず」と米情報機関分析＝報道</h3>
+            <p class="summary">米軍が実施したイラン核施設への攻撃について、米情報機関は初期分析で、核開発計画の中核部分は破壊されず、数カ月遅らせる程度の効果にとどまった可能性が高いと分析。CNNが報じたが、ホワイトハウス報道官はこの分析を「完全な間違い」と否定した。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/security/OWUIVDIKH5JEDPO4AHVXRMKY6I-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 06:18) 原油先物7％超安、イランが米軍基地攻撃も原油輸送は妨害せず -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:18)</p>
-            <h2 class="text-xl font-bold news-title mb-4">原油先物7％超安、イランが米軍基地攻撃も原油輸送は妨害せず</h2>
-            <p class="text-gray-300 leading-relaxed">
-                23日の米国時間、原油先物価格が7%超下落した。イランが米国の核施設空爆への報復としてカタールの米軍基地を攻撃したものの、重要な輸送路であるホルムズ海峡のタンカー航行を妨害しなかったため。北海ブレント先物は7.2%安の71.48ドル、WTI先物も7.2%安の68.51ドルとなった。
-            </p>
-            <a href="https://jp.reuters.com/markets/commodities/ZJKS4YD23VPVXADWCP2LZ6GXEY-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/markets/commodities/ZJKS4YD23VPVXADWCP2LZ6GXEY-2025-06-23/
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 05:59</p>
+            <h3 class="title">ＦＲＢバー理事、関税による持続的インフレを警戒　利下げには慎重</h3>
+            <p class="summary">FRBのバー理事は24日、関税引き上げが一時的ではない価格上昇圧力となる可能性を指摘。インフレ率2%達成への進捗は「緩やかだが不均一」とし、利下げを急がない慎重な姿勢を示した。関税が経済を減速させるリスクにも言及した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/SRIV2K44PJNQHIDYJ5JAWTNJVU-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 06:08) ＮＹ外為市場＝ドル下落、ＦＲＢ当局者の利下げ支持発言受け -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:08)</p>
-            <h2 class="text-xl font-bold news-title mb-4">ＮＹ外為市場＝ドル下落、ＦＲＢ当局者の利下げ支持発言受け</h2>
-            <p class="text-gray-300 leading-relaxed">
-                23日のNY外為市場でドルが下落した。FRBのボウマン副議長がインフレ抑制を条件に次回会合での利下げ支持を表明したことや、イランの報復が限定的との見方が広がったことが背景。主要通貨に対するドル指数は0.32%安の98.45となった。市場は年内計58bpの利下げを織り込んでいる。
-            </p>
-            <a href="https://jp.reuters.com/markets/us/VNZGPROJSZI5NPCXDIPBOQCG5A-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/markets/us/VNZGPROJSZI5NPCXDIPBOQCG5A-2025-06-23/
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 05:58</p>
+            <h3 class="title">米住宅価格指数、4月は前月比‐0.4％　22年8月以来初の低下＝ＦＨＦＡ</h3>
+            <p class="summary">米連邦住宅金融庁（FHFA）が発表した4月の住宅価格指数は前月比0.4%低下し、2022年8月以来初のマイナスとなった。需要低迷による売れ残り物件の増加が背景にあり、住宅価格の上昇ペースが鈍化していることを示唆している。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/S5BIWUTXERI6PBASLSZ3PYKZ5Y-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 06:05) 米国が攻撃したイランの拠点、「完全に破壊された」＝トランプ大統領 -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 06:05)</p>
-            <h2 class="text-xl font-bold news-title mb-4">米国が攻撃したイランの拠点、「完全に破壊された」＝トランプ大統領</h2>
-            <p class="text-gray-300 leading-relaxed">
-                トランプ米大統領は23日、SNSへの投稿で、週末に米軍が攻撃したイランの施設は全て「完全に破壊された」と述べた。大統領は「誰もがそれを知っている」と強調し、一部メディアが遺跡が「かなり破壊された」と報じたことを批判した。この発言は、米軍の攻撃の成果を誇示するものと見られる。
-            </p>
-            <a href="https://jp.reuters.com/world/us/JCXQI5WESZNM5PW52WD36XBCMM-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/world/us/JCXQI5WESZNM5PW52WD36XBCMM-2025-06-23/
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 05:56</p>
+            <h3 class="title">イスラエル「歴史的勝利」達成、トランプ氏「最良の友人」＝ネタニヤフ首相</h3>
+            <p class="summary">イスラエルのネタニヤフ首相は24日、「歴史的勝利を収めた」と宣言する一方、イランへの軍事作戦完了とハマス打倒の必要性を強調した。ビデオメッセージで、トランプ米大統領をイスラエルにとって「最良の友人」と称賛した。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/security/K22JJ5TXU5NQNAPA5BA6DXPFRQ-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 05:48) ノーザン・トラスト、独立維持の方針表明－ＢＮＹが関心との報道受け -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 05:48)</p>
-            <h2 class="text-xl font-bold news-title mb-4">ノーザン・トラスト、独立維持の方針表明－ＢＮＹが関心との報道受け</h2>
-            <p class="text-gray-300 leading-relaxed">
-                米金融機関ノーザン・トラストは、バンク・オブ・ニューヨーク・メロン（BNYメロン）が合併に関心を示しているとの報道を受け、独立企業として存続する方針を表明した。同社の広報担当は「独立を維持し、ステークホルダーに長期的価値を提供し続ける」と説明。市場の臆測にはコメントしないとした。
-            </p>
-            <a href="https://www.bloomberg.co.jp/news/articles/2025-06-23/SYBSTPDWRGG000" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://www.bloomberg.co.jp/news/articles/2025-06-23/SYBSTPDWRGG000
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 05:11</p>
+            <h3 class="title">ＦＲＢ、関税巡る不透明感で「様子見姿勢」＝ミネアポリス連銀総裁</h3>
+            <p class="summary">ミネアポリス連銀のカシュカリ総裁は24日、関税措置が物価に与える影響を見極めるため、FRBは「様子見姿勢」を取っていると述べた。労働市場が急速に悪化すれば利下げの可能性もあるが、現状の経済は堅調であり、個人的にはそのシナリオを予想していないとした。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/DGBGGLZ3HBLLLBN7JE34IJ5PPA-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 05:31) イラン、カタールの米空軍基地に報復攻撃　米国に事前に通知し死傷者なし -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 05:31)</p>
-            <h2 class="text-xl font-bold news-title mb-4">イラン、カタールの米空軍基地に報復攻撃　米国に事前に通知し死傷者なし</h2>
-            <p class="text-gray-300 leading-relaxed">
-                イランは23日、米国の核施設空爆への報復としてカタールのアルウデイド米軍基地をミサイル攻撃した。トランプ米大統領は、イランが事前に通告したため死傷者は出なかったと述べ、イランに感謝の意を表明。イランのハメネイ師は侵略は受け入れないとしながらも、報復継続を示唆した。
-            </p>
-            <a href="https://jp.reuters.com/markets/commodities/NWQHVFBRPZO43MZZXAXG24UCNQ-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/markets/commodities/NWQHVFBRPZO43MZZXAXG24UCNQ-2025-06-23/
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 04:55</p>
+            <h3 class="title">原油先物6％安、2週間ぶり安値　イスラエル・イラン停戦で供給懸念後退</h3>
+            <p class="summary">24日の原油先物市場は、イスラエルとイランの停戦合意により中東からの供給懸念が後退したことを受け、6%下落し2週間ぶりの安値をつけた。北海ブレント先物は67.14ドル、米WTI先物は64.37ドルで清算された。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/commodities/LUB5KHIEHZKIVPIUQA3U6S6TCQ-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
-        <!-- News Card: (2025-06-24 04:34) 欧州市場サマリー（23日） -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-24 04:34)</p>
-            <h2 class="text-xl font-bold news-title mb-4">欧州市場サマリー（23日）</h2>
-            <p class="text-gray-300 leading-relaxed">
-                23日の欧州市場では、米のイラン攻撃を受けた中東情勢の緊迫化を背景に、株式市場が反落した。ロンドンFTSE100は約3週間ぶり安値。ポンド高も重荷となった。一方、ユーロ圏国債利回りは原油価格下落でインフレ懸念が和らぎ、ほぼ横ばいで推移した。
-            </p>
-            <a href="https://jp.reuters.com/markets/europe/K52YK44UMJOOJNQGR3VOKD4PHE-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/markets/europe/K52YK44UMJOOJNQGR3VOKD4PHE-2025-06-23/
-            </a>
+        <div class="news-card">
+            <p class="time">2025-06-25 04:09</p>
+            <h3 class="title">欧州市場サマリー（24日）</h3>
+            <p class="summary">24日の欧州市場は、イスラエルとイランの停戦合意を受け、中東情勢への懸念が和らぎ、株式市場は反発。特に旅行関連株が買われた。一方、原油価格の下落で石油株は売られた。ドイツ国債利回りは、同国の新予算案を材料に上昇した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/europe/3SXV7QFTOFPX3BSP4GOHKIBZHI-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
-        
-        <!-- ... More news cards will follow the same pattern ... -->
-        
-        <!-- News Card: (2025-06-23 17:51) 中国・香港株式市場・大引け＝香港続伸、本土投資資金が流入　中国も上昇 -->
-        <div class="news-card rounded-lg p-6 mb-6 shadow-lg border border-gray-700">
-            <p class="text-sm text-gray-400 mb-2">(2025-06-23 17:51)</p>
-            <h2 class="text-xl font-bold news-title mb-4">中国・香港株式市場・大引け＝香港続伸、本土投資資金が流入　中国も上昇</h2>
-            <p class="text-gray-300 leading-relaxed">
-                この記事の本文は取得できませんでした。
-            </p>
-            <a href="https://jp.reuters.com/markets/asia/NIVICDNWX5LPDEH3HFPNFF6ADM-2025-06-23/" target="_blank" rel="noopener noreferrer" class="news-link inline-block mt-4 break-all hover:underline">
-                https://jp.reuters.com/markets/asia/NIVICDNWX5LPDEH3HFPNFF6ADM-2025-06-23/
-            </a>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 04:07</p>
+            <h3 class="title">ロンドン株式市場＝反発、旅行関連株上昇　中東巡る懸念緩和</h3>
+            <p class="summary">24日のロンドン株式市場は、イスラエルとイランの停戦合意の報を受け中東情勢への懸念が和らぎ、反発して取引を終えた。旅行関連株が買われ、FTSE350種旅行・娯楽関連株指数は3.58%高。一方、原油安で石油大手は下落した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/europe/6BWQ4GAKKFMYJMC2ERCTUPJQWM-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 04:04</p>
+            <h3 class="title">欧州株式市場＝反発、中東の緊張緩和を好感</h3>
+            <p class="summary">24日の欧州株式市場は、イスラエルとイランの停戦合意が好感され反発。中東の緊張緩和期待から買い注文が優勢となり、STOXX欧州600種旅行・娯楽関連株指数は4.27%高と急騰した。一方、原油安で石油・ガス株は下落した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/europe/7JBKLYEVKNIU7BS5TIHXI3AYBA-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 03:58</p>
+            <h3 class="title">米ＦＲＢの「適度に制約的な」政策スタンス適切＝ボストン連銀総裁</h3>
+            <p class="summary">ボストン連銀のコリンズ総裁は24日、FRBの「適度に制約的な」金融政策スタンスは、住宅市場への重しとなりつつも、物価安定のためには必要で適切であるとの認識を示した。物価安定が持続的な経済成長と力強い労働市場に不可欠だと語った。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/OT5P5NBHLBITNOEZ2WQHUM5WVE-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 03:57</p>
+            <h3 class="title">トランプ氏、ＮＡＴＯ相互防衛条項に疑問呈す　首脳会議出席控え</h3>
+            <p class="summary">トランプ米大統領は24日、NATO首脳会議を前に、同盟国の相互防衛を定めたNATO条約第5条には「多数の解釈がある」と述べ、米国のコミットメントに疑問を呈した。会議では国防費のGDP比5%への増額要求が焦点になるとみられる。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/ukraine/NFKMIV46DZJ35IB3LTEPUNUUGA-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 03:56</p>
+            <h3 class="title">米ドルは主要な基軸通貨、地位に「脅威なし」＝ＮＹ連銀総裁</h3>
+            <p class="summary">ニューヨーク連銀のウィリアムズ総裁は24日、世界の主要準備通貨としてのドルの地位を脅かす脅威は見られないと述べた。外国人のドル保有高は根本的に変わっておらず、ドルは依然として主要な基軸通貨であると指摘した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/XROSEMMZBFPGVEMM7AFRBYBMQM-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 03:55</p>
+            <h3 class="title">現在の金融政策は適切、差し迫った利下げの理由なし＝ＮＹ連銀総裁</h3>
+            <p class="summary">NY連銀のウィリアムズ総裁は24日、現行の金融政策は「適切な位置にある」とし、差し迫った利下げの必要性はないとの考えを示唆した。関税措置の影響で今年の経済成長は鈍化しインフレは上昇すると予想、今後のデータを見極める時間が必要だと述べた。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/ZV2ZFLMDOVNWHJR7OJA26Z4NDY-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 03:53</p>
+            <h3 class="title">米経常赤字、第1四半期は44％増　四半期ベースで過去最大</h3>
+            <p class="summary">米商務省によると、2025年第1四半期の経常赤字は前期比44.3%増の4502億ドルとなり、四半期ベースで過去最大を記録した。トランプ大統領の関税引き上げを前に企業が輸入を前倒ししたことが主因で、モノの貿易赤字が大幅に拡大した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/YCY7M5UOWNO3PHGXFSF2VSY5PM-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 03:51</p>
+            <h3 class="title">米ドル離れの兆候なし、軟化は投資比率の調整＝米クリーブランド連銀総裁</h3>
+            <p class="summary">クリーブランド連銀のハマック総裁は24日、投資家による米ドル離れの動きは見られず、今年のドル軟化は投資ポートフォリオにおけるドル比率がオーバーウエートから中立方向へ調整されていることを反映しているに過ぎないとの見解を示した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/DBJNYQ3QTJPIJNO36KA2FGKSY4-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 03:07</p>
+            <h3 class="title">米ＣＢ消費者信頼感、6月は予想外に悪化　景気・雇用見通し懸念</h3>
+            <p class="summary">コンファレンス・ボードが発表した6月の米消費者信頼感指数は93.0と、予想外に悪化した。消費者は今後6カ月間の景気や雇用の見通しを懸念しており、仕事が「豊富にある」との回答は2021年3月以来の低水準に落ち込んだ。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/GXX2UCJLAFOEZB6TZNBHGWBILE-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 02:58</p>
+            <h3 class="title">トランプ氏、中国のイラン産石油購入を容認　米産大量購入にも期待</h3>
+            <p class="summary">トランプ米大統領は24日、中国が今後もイランから石油を購入することを容認する一方、米国からも「大量に」購入することに期待を示した。イスラエルとイランの停戦表明後、自身のSNSに投稿したもので、対イラン制裁を事実上緩和する可能性を示唆した。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/us/CEBOHWBX5JOLLH7RWB6QPMIYFE-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 02:09</p>
+            <h3 class="title">ＦＲＢ議長議会証言、利下げ急がずと再表明　「関税見極め必要」</h3>
+            <p class="summary">FRBのパウエル議長は24日の下院議会証言で、関税引き上げによるインフレ加速の可能性を指摘し、利下げを急がない姿勢を改めて表明した。トランプ大統領の貿易政策の不確実性を理由に挙げ、今後の経済データを見極める必要があると強調した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/KEY5Y2CSPRPR7JO3EIFT5FVOLA-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 02:06</p>
+            <h3 class="title">情報BOX：パウエル米ＦＲＢ議長の議会証言要旨</h3>
+            <p class="summary">パウエルFRB議長は24日の議会証言で、関税引き上げが物価を押し上げるか見極めるため、利下げの検討には時間が必要との見解を示した。経済は「堅調」としつつ、インフレが予想より弱ければ早期利下げの可能性もあるが、急ぐ必要はないと強調した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/NYFZKBROXJLF3GZXSBLCJNC7PY-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:34</p>
+            <h3 class="title">ウクライナ南東部にミサイル、11人死亡　ＮＡＴＯ首脳会議開催中に</h3>
+            <p class="summary">ウクライナ南東部ドニプロペトロウスク州で24日、ロシアのミサイル攻撃により少なくとも11人が死亡した。ゼレンスキー大統領がNATO首脳会議で防衛産業強化を訴える中での攻撃となり、同氏は「命を守ることを支持してほしい」と強く訴えた。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/ukraine/IJCDZQVVNJN67EUSA56TREZGPA-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:32</p>
+            <h3 class="title">イスラエル、ガザでの攻撃続行　イランとの停戦合意後も</h3>
+            <p class="summary">イスラエルとイランの停戦合意直後の24日、イスラエル軍はガザ地区への攻撃を続行し、少なくとも29人のパレスチナ人が死亡した。軍はガザ北部で避難を命じるビラを散布しており、ハマスへの軍事作戦を継続する姿勢を示している。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/us/VL4QQDF4Z5IUFAJ36T74YPUGEA-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:30</p>
+            <h3 class="title">トランプ氏は「断固たる行動」、ＮＡＴＯ事務総長が称賛　イラン空爆巡り</h3>
+            <p class="summary">NATOのルッテ事務総長が、トランプ米大統領によるイラン核施設空爆を「断固たる行動」と称賛するメッセージを送っていたことが判明。トランプ氏がSNSに投稿したスクリーンショットで明らかになり、NATO当局者もメッセージが事実であることを認めた。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/security/GC2WNBVFGNIUTPAPMPJBWNRNBY-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:28</p>
+            <h3 class="title">利下げ急がず、関税の物価への影響不透明＝米クリーブランド連銀総裁</h3>
+            <p class="summary">クリーブランド連銀のハマック総裁は24日、インフレは目標を上回り、関税の影響も不透明なため、利下げを急ぐ必要はないとの見解を示した。現行の金融政策維持のリスクは低く、経済の弱体化も見られないため、当面は政策が据え置かれる可能性を示唆した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/7D3YWUILWFN73MVL7Z6IMIF3FI-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:28</p>
+            <h3 class="title">インフレとの闘いほぼ完了、サービス物価はなお高水準＝レーンＥＣＢ専務理事</h3>
+            <p class="summary">ECBのレーン専務理事は24日、ユーロ圏のインフレとの闘いは「ほぼ」完了したとの認識を示した。ただし、サービス部門の物価上昇率は依然として高すぎると指摘。金融政策上の課題の大部分は解決したとしつつも、一部には課題が残ると述べた。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/X2GSSL5QBNPVXNIC7M3SHGP22A-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:26</p>
+            <h3 class="title">イスラエルが違反しない限り停戦協定を順守する＝イラン大統領</h3>
+            <p class="summary">イランのペゼシュキアン大統領は24日、イスラエルが停戦協定に違反しない限り、イランは協定を順守すると表明した。国営ヌールニュースが報じた。イラン政府は交渉のテーブルで国民の権利を守る用意があるとも述べた。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/commodities/3HKKCA3E3BKR7EEW2AGNMTMQXM-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:21</p>
+            <h3 class="title">イスラエル、停戦発効後のイラン攻撃認める　首都近郊の軍事レーダー</h3>
+            <p class="summary">イスラエル首相府は24日、イランとの停戦発効後に、報復としてテヘラン近郊の軍事レーダー施設を攻撃したと認めた。しかし、トランプ米大統領とネタニヤフ首相の会談後、それ以上の攻撃は控えていると強調した。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/security/ZAPA5GF4DNMZTHA2YY4LLOQYWA-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:14</p>
+            <h3 class="title">トランプ氏、ＮＡＴＯ首脳会議でゼレンスキー氏と会談へ＝ホワイトハウス</h3>
+            <p class="summary">米ホワイトハウス当局者は24日、トランプ大統領がオランダ・ハーグで開催されるNATO首脳会議の期間中、ウクライナのゼレンスキー大統領と会談する予定であると明らかにした。会談の具体的な日時は不明。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/ukraine/Y7TMH3L37NOXDCNCMKF63E7HFQ-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:12</p>
+            <h3 class="title">ユーロ圏金融・債券市場＝独長期債利回り上昇、予算案閣議了承を材料視</h3>
+            <p class="summary">24日のユーロ圏債券市場で、ドイツの長期国債利回りが上昇した。ドイツ政府が過去最高の投資額を盛り込んだ2025年度予算案を閣議了承したことが材料視された。国債増発への警戒感から、10年債利回りは2.53%に上昇した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/europe/ZKLJWNFFQZLCXLDJYVBAQCRISQ-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 22:36</p>
+            <h3 class="title">トランプ氏「停戦は発効」、違反でイラン以上にイスラエルに不満</h3>
+            <p class="summary">トランプ米大統領は24日、自身が発表した停戦にイスラエルとイラン双方が違反したと指摘し、特にテヘランを攻撃したイスラエルに強い不満を表明した。その後、「停戦は発効している！」とSNSに投稿し、イスラエルは攻撃を中止したと述べた。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/security/MUEZUKEWYFK55LBVLLSBQSJ2U4-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 20:09</p>
+            <h3 class="title">ドイツ、25年度予算案を閣議了承　投資と利払い急増</h3>
+            <p class="summary">ドイツ政府は24日、2年連続のマイナス成長を受け、大規模な投資を盛り込んだ2025年度予算案を閣議了承した。25年度の投資額は1157億ユーロに上る。財源は借入で賄い、国防費もGDP比3.5%へ引き上げる計画だ。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/77IZ2OKIWJIXPDCNGSVVXH2Z54-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 19:46</p>
+            <h3 class="title">独ＩＦＯ業況指数、6月は予想以上に上昇　景気底入れ観測</h3>
+            <p class="summary">独IFO経済研究所が発表した6月の業況指数は88.4と、市場予想を上回り前月から上昇した。特にサービス部門の改善が顕著で、期待指数も上昇。エコノミストは、財政拡張政策や金利低下を背景に、ドイツ経済が底を脱したとの見方を示している。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/XS2XP3L3UBNXLM4R4MOYR7LA7E-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 19:40</p>
+            <h3 class="title">アジア株式市場サマリー：引け（24日）</h3>
+            <p class="summary">24日のアジア株式市場は、トランプ米大統領が発表したイスラエル・イラン停戦合意を好感し、全面高となった。中国上海総合指数は1.15%高、香港ハンセン指数は2.06%高。韓国KOSPIも2.96%高と急反発した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/asia/VHXAJXTUF5N25LPDXENJ37Q4JA-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 19:29</p>
+            <h3 class="title">グリーン英中銀委員、高インフレ持続を懸念　利下げ再開急がず</h3>
+            <p class="summary">英中銀のグリーン金融政策委員は24日、最近のインフレ上昇が一時的でなく持続する可能性を懸念し、利下げ再開に慎重な姿勢を示した。相反する経済データが出ている中、物価安定を最優先し、慎重かつ漸進的なアプローチが正当化されると述べた。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/EQZ37QLSRVPWNP5SQMZPOT5JOE-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 19:02</p>
+            <h3 class="title">ＦＲＢ、早期利下げ不要　年内に物価上昇へ＝アトランタ連銀総裁</h3>
+            <p class="summary">アトランタ連銀のボスティック総裁は、企業が関税対応で年後半に値上げを計画していることや、安定した雇用市場を理由に、FRBが早期に利下げする必要はないとの認識を示した。自身の予想に基づき、年内に25bpの利下げ1回で十分との見方を示した。</p>
+            <p class="url"><a href="https://jp.reuters.com/markets/japan/funds/ZTT5NPMTBVP5LICIT5SCRN4P6Q-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 18:36</p>
+            <h3 class="title">タイ首相、連立政権は「盤石」と主張　内閣改造人事が決着</h3>
+            <p class="summary">タイのペートンタン首相は24日、内閣改造人事が決着し、連立政権は盤石であると主張した。与党第2党が連立離脱の動きを見せる中での発言で、国王の承認を得るため名簿を審査中であると述べ、各党の全面的な協力を強調した。</p>
+            <p class="url"><a href="https://jp.reuters.com/world/security/WDHZ4RHU5NPDLH5LB53LFQFEMI-2025-06-24/" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <h2 class="source-header">Bloomberg ニュース</h2>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 02:37</p>
+            <h3 class="title">パウエル議長、金利は当面据え置きへ－関税でインフレ加速見込む</h3>
+            <p class="summary">FRBのパウエル議長は24日の議会証言で、トランプ大統領の関税政策による影響を見極めるため、利下げを急がず金利を当面据え置く姿勢を改めて示した。「経済の進路についてより多くの情報が得られるのを待つ」と述べ、不確実性の高さを強調した。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYD1K6T0AFB400" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:25</p>
+            <h3 class="title">ＮＡＴＯ集団防衛義務、トランプ氏が疑問呈す発言－サミット前に波紋</h3>
+            <p class="summary">トランプ米大統領は24日、NATO首脳会議を前に、集団防衛を定めた第5条への米国の関与に疑問を呈する発言をし、波紋を広げた。「第5条の解釈にはいろいろある」と述べ、同盟国の防衛義務に対する米国のコミットメントを曖昧にした。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYD8MGDWRGG000" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 00:12</p>
+            <h3 class="title">米消費者信頼感、予想外に低下－経済や家計を巡る懸念が重し</h3>
+            <p class="summary">米コンファレンスボードが発表した6月の消費者信頼感指数は、経済や家計の先行きに対する懸念から予想外に低下した。現況・期待指数ともに悪化し、関税の影響への不安が根強いことを浮き彫りにした。雇用に関する見方も弱含んでいる。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYD5P0DWLU6800" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 02:23</p>
+            <h3 class="title">ＮＹ連銀総裁、金利据え置きは「完全に適切」－政策の影響を見極め</h3>
+            <p class="summary">ニューヨーク連銀のウィリアムズ総裁は24日、政策変更が経済に与える影響を分析する間、金利を据え置くことは「完全に適切だ」との認識を示した。失業率の上昇や関税によるインフレ加速を予想しており、データを見極める必要があると述べた。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYDCK1T1UM0W00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 06:02</p>
+            <h3 class="title">トヨタ、ウーブン・プラネット債を起債－３本立て15億ドル相当</h3>
+            <p class="summary">トヨタ自動車は24日、実証都市「ウーブン・シティ」関連事業の資金調達のため、サステナビリティーボンド「ウーブン・プラネット債」を15億ドル相当起債した。3本立てで、調達資金は先進運転支援技術やCO2排出削減などに充てられる。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYDMIBT0G1KW00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 06:09</p>
+            <h3 class="title">ＥＵは米国に報復関税、10％基本税率が残った場合－上級副委員長</h3>
+            <p class="summary">EUは、トランプ米政権がEU製品への10%基本関税を維持する場合、ボーイング製航空機などを対象に報復関税を課す計画だ。セジュルネ上級副委員長が、米国が非対称なディールに固執するなら、均衡回復を図る必要があると述べた。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYDIKBT0G1KW00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 05:45</p>
+            <h3 class="title">バーＦＲＢ理事、関税によるインフレ押し上げを予想－経済は堅調</h3>
+            <p class="summary">FRBのバー理事は24日、関税がインフレを押し上げると予想し、金利調整には様子見のアプローチを支持する考えを示した。経済は堅調だが、関税が経済を減速させ失業を増やす恐れもあるとし、大きな不確実性があると付け加えた。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYDMK9T1UM0W00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 23:49</p>
+            <h3 class="title">ＥＣＢデギンドス氏、原油価格変動はインフレ見通しに影響なしと指摘</h3>
+            <p class="summary">ECBのデギンドス副総裁は24日、イスラエルとイランの紛争による原油価格の変動は、ユーロ圏のインフレ低下という見通しを覆すものではないとの見解を示した。インフレ率が低下していく過程は定着していると述べ、慎重な対応を呼びかけた。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYD2X4T0AFB400" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 05:37</p>
+            <h3 class="title">フェデックスの利益見通し、市場予想を下回る－時間外で株価下落</h3>
+            <p class="summary">米物流大手フェデックスが24日に発表した6-8月期の利益見通しは市場予想を下回った。関税措置の影響で需要低迷が続くとみられ、株価は時間外で下落。世界的な需要環境の不透明感を理由に通期の業績見通しは公表しなかった。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYDMJWDWRGG000" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 20:26</p>
+            <h3 class="title">防衛支出増大機運高まる欧州、開発へ投資なければ効果薄－ＢＥが試算</h3>
+            <p class="summary">ブルームバーグ・エコノミクスは、欧州の防衛支出増大計画について、研究開発への投資を伴わなければ経済的恩恵は限定的で、3年以内に消えると試算した。海外からの装備購入に偏重せず、域内での開発・生産体制を見直す必要があると指摘した。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYCSRCT0G1KW00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 03:52</p>
+            <h3 class="title">クリーブランド連銀総裁、｢かなりの期間」の金利据え置きを示唆</h3>
+            <p class="summary">クリーブランド連銀のハマック総裁は24日、現在の金利はわずかに景気抑制的であり、当局は「かなりの期間」政策金利を据え置く可能性があると述べた。インフレ目標達成にはまだ距離があるとし、関税の影響を見極める必要があるとの認識を示した。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYDI6GDWRGG000" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 03:03</p>
+            <h3 class="title">【欧州市況】株が上昇、中東停戦で航空株に買い－ドイツ債下落</h3>
+            <p class="summary">24日の欧州市場は、中東の停戦合意を好感し株価が上昇、特に航空株が買われた。一方、安全資産への需要が減少し、ドイツ国債利回りは上昇。ドイツの国債発行額引き上げ方針も利回り上昇圧力となった。原油安でエネルギー株は下落した。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYDF7TT1UM0W00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 02:25</p>
+            <h3 class="title">英中銀総裁ら、国内の雇用情勢悪化に警鐘－８月利下げの見方強まる</h3>
+            <p class="summary">英中銀のベイリー総裁らは24日、国内の雇用情勢が急速に悪化しているとの認識を示し、8月の追加利下げ観測が強まった。労働党政権による雇用主への負担増が影響しているとみられ、総裁は「労働市場が軟化し始めている兆し」と述べた。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYDBLVT1UM0W00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 01:06</p>
+            <h3 class="title">ＥＣＢ、ディスインフレの取り組みは「ほぼ完了」－レーン理事</h3>
+            <p class="summary">ECBのチーフエコノミスト、レーン理事は24日、インフレ率を目標に戻す取り組みは「ほぼ完了した」との認識を示した。ただし、サービス分野のインフレには課題が残ると指摘。将来の貿易を巡る不確実性などに備える必要があると語った。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYD8D2T1UM0W00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 22:00</p>
+            <h3 class="title">米20都市住宅価格指数、４月は前年比3.4％上昇－予想3.9％上昇</h3>
+            <p class="summary">S&Pが発表した4月の米主要20都市住宅価格指数は前年同月比3.42%上昇と、市場予想の3.90%を下回り、伸びが鈍化した。前月比では0.31%低下。高いローン金利が住宅市場の重しとなっている状況を反映した。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYD2OHNPYH3500" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 22:50</p>
+            <h3 class="title">利下げを急ぐ必要ないとアトランタ連銀総裁、物価高見込む－ロイター</h3>
+            <p class="summary">アトランタ連銀のボスティック総裁は、企業が年後半に値上げを計画し、雇用市場も安定していることから、利下げを急ぐ必要はないとの考えを示した。関税などの動向を見守る時間的余裕があるとし、年内に1回の利下げで十分との見方を示した。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYD3ELDWRGG000" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 22:47</p>
+            <h3 class="title">米住宅価格指数、４月は伸び鈍化－高いローン金利が買い手を圧迫</h3>
+            <p class="summary">4月の米住宅価格指数は伸びが鈍化し、全米ベースでは2023年夏以来の小幅な上昇となった。高い住宅ローン金利が買い手を圧迫し、一部が市場から撤退していることが背景。価格上昇の時代は終わり、地域経済の動向がより影響する局面に移行しつつある。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYD393DWX2PS00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-25 00:13</p>
+            <h3 class="title">マイクロソフト、Ｘｂｏｘ部門で大規模な人員削減を計画－関係者</h3>
+            <p class="summary">マイクロソフトは来週、ゲーム機「Xbox」部門で新たな大規模人員削減を計画している。全社的な再編の一環で、同部門では過去18カ月で4度目の大規模レイオフとなる。アクティビジョン・ブリザード買収後、利益率向上の圧力に直面している。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYD5GPDWX2PS00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 15:43</p>
+            <h3 class="title">韓国サムスン、新型折り畳みスマホ発表へ－来月９日にイベント開催</h3>
+            <p class="summary">韓国サムスン電子は、7月9日にニューヨークで新製品発表イベントを開催すると発表した。新型の折り畳みスマートフォン「Galaxy Z Flip 7」や「Galaxy Z Fold 7」、およびAI機能の進化が披露される見通し。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYCDR2T1UM0W00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 14:04</p>
+            <h3 class="title">ＡＩと超音波で脳治療、リンクトイン創業者がスタートアップ支援</h3>
+            <p class="summary">リンクトイン共同創業者のリード・ホフマン氏が、超音波とAIで精神疾患を治療するスタートアップ「サンマイ・テクノロジーズ」の資金調達を主導し、取締役に就任。同社は500ドル未満の家庭用デバイス開発を目指し、精神医療の変革を狙う。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYC28SDWRGG000" target="_blank" rel="noopener noreferrer">記事URL</a></p>
+        </div>
+
+        <div class="news-card">
+            <p class="time">2025-06-24 12:31</p>
+            <h3 class="title">米ファイサーブ、独自のステーブルコイン発行へ－ペイパルなどと連携</h3>
+            <p class="summary">フィンテック大手ファイサーブは、ペイパルおよびサークルと提携し、独自のステーブルコイン「FIUSD」を発行すると発表した。年末までに顧客へ提供予定で、金融機関や加盟店が安価でスムーズな決済サービスを展開できるよう支援する。</p>
+            <p class="url"><a href="https://www.bloomberg.co.jp/news/articles/2025-06-24/SYC1WADWX2PS00" target="_blank" rel="noopener noreferrer">記事URL</a></p>
         </div>
 
     </div>
-
 </body>
 </html>
-
